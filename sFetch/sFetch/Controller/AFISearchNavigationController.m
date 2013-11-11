@@ -38,11 +38,10 @@
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
     if ([self.delegate respondsToSelector:@selector(navigationSearchBarShouldBeginEditing:)]) {
-        if ([self.searchDelegate navigationSearchBarShouldBeginEditing:searchBar]) {
-            [self popToRootViewControllerAnimated:YES];
-            [self.searchBar setShowsCancelButton:YES animated:YES];
-        }
+        [self.searchDelegate navigationSearchBarShouldBeginEditing:searchBar];
     }
+    [self popToRootViewControllerAnimated:YES];
+    [self.searchBar setShowsCancelButton:YES animated:YES];
     return YES;
 }
 
@@ -50,6 +49,13 @@
 {
     [self.searchBar resignFirstResponder];
     [self.searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([self.searchDelegate respondsToSelector:@selector(navigationSearchBar:textDidChange:)]) {
+        [self.searchDelegate navigationSearchBar:searchBar textDidChange:searchText];
+    }
 }
 
 @end

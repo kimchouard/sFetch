@@ -23,4 +23,5 @@
 
 - (BOOL)navigationSearchBarShouldBeginEditing:(UISearchBar *)searchBar;
 
+- (void)navigationSearchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
 @end

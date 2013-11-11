@@ -24,6 +24,7 @@
 		5A109899183102C8005D6DDA /* sFetchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A109898183102C8005D6DDA /* sFetchTests.m */; };
 		5A1098A418310673005D6DDA /* AFIContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A318310673005D6DDA /* AFIContact.m */; };
 		5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */; };
+		5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098AC183141D3005D6DDA /* AFIContactVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		5A1098A318310673005D6DDA /* AFIContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContact.m; path = Model/AFIContact.m; sourceTree = "<group>"; };
 		5A1098A818313DE7005D6DDA /* AFISearchNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFISearchNavigationController.h; path = Controller/AFISearchNavigationController.h; sourceTree = "<group>"; };
 		5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFISearchNavigationController.m; path = Controller/AFISearchNavigationController.m; sourceTree = "<group>"; };
+		5A1098AB183141D3005D6DDA /* AFIContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIContactVC.h; path = Controller/AFIContactVC.h; sourceTree = "<group>"; };
+		5A1098AC183141D3005D6DDA /* AFIContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContactVC.m; path = Controller/AFIContactVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				5A10987F183102C8005D6DDA /* Main_iPad.storyboard */,
 				5A109882183102C8005D6DDA /* AFIContactSearchVC.h */,
 				5A109883183102C8005D6DDA /* AFIContactSearchVC.m */,
+				5A1098AB183141D3005D6DDA /* AFIContactVC.h */,
+				5A1098AC183141D3005D6DDA /* AFIContactVC.m */,
 				5A1098A818313DE7005D6DDA /* AFISearchNavigationController.h */,
 				5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */,
 				5A1098A218310673005D6DDA /* AFIContact.h */,
@@ -268,6 +273,7 @@
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
+				5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

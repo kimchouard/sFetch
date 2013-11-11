@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-395" y="-194"/>
         </scene>
-        <!--Contact SearchVC-->
+        <!--ContactVC-->
         <scene sceneID="Lm6-wC-Ujg">
             <objects>
-                <viewController id="JVv-4t-4U9" customClass="AFIContactSearchVC" sceneMemberID="viewController">
+                <viewController id="JVv-4t-4U9" customClass="AFIContactVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wqM-sU-BOk"/>
                         <viewControllerLayoutGuide type="bottom" id="mc2-Zj-jSl"/>
