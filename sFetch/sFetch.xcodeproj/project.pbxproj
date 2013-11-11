@@ -15,7 +15,7 @@
 		5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10987A183102C8005D6DDA /* AFIAppDelegate.m */; };
 		5A10987E183102C8005D6DDA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A10987C183102C8005D6DDA /* Main_iPhone.storyboard */; };
 		5A109881183102C8005D6DDA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A10987F183102C8005D6DDA /* Main_iPad.storyboard */; };
-		5A109884183102C8005D6DDA /* AFIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A109883183102C8005D6DDA /* AFIViewController.m */; };
+		5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A109883183102C8005D6DDA /* AFIContactSearchVC.m */; };
 		5A109886183102C8005D6DDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A109885183102C8005D6DDA /* Images.xcassets */; };
 		5A10988D183102C8005D6DDA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A10988C183102C8005D6DDA /* XCTest.framework */; };
 		5A10988E183102C8005D6DDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A10986A183102C8005D6DDA /* Foundation.framework */; };
@@ -49,8 +49,8 @@
 		5A10987A183102C8005D6DDA /* AFIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFIAppDelegate.m; sourceTree = "<group>"; };
 		5A10987D183102C8005D6DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5A109880183102C8005D6DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		5A109882183102C8005D6DDA /* AFIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFIViewController.h; sourceTree = "<group>"; };
-		5A109883183102C8005D6DDA /* AFIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFIViewController.m; sourceTree = "<group>"; };
+		5A109882183102C8005D6DDA /* AFIContactSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFIContactSearchVC.h; sourceTree = "<group>"; };
+		5A109883183102C8005D6DDA /* AFIContactSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFIContactSearchVC.m; sourceTree = "<group>"; };
 		5A109885183102C8005D6DDA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5A10988B183102C8005D6DDA /* sFetchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sFetchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A10988C183102C8005D6DDA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -124,8 +124,8 @@
 				5A10987A183102C8005D6DDA /* AFIAppDelegate.m */,
 				5A10987C183102C8005D6DDA /* Main_iPhone.storyboard */,
 				5A10987F183102C8005D6DDA /* Main_iPad.storyboard */,
-				5A109882183102C8005D6DDA /* AFIViewController.h */,
-				5A109883183102C8005D6DDA /* AFIViewController.m */,
+				5A109882183102C8005D6DDA /* AFIContactSearchVC.h */,
+				5A109883183102C8005D6DDA /* AFIContactSearchVC.m */,
 				5A1098A818313DE7005D6DDA /* AFISearchNavigationController.h */,
 				5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */,
 				5A1098A218310673005D6DDA /* AFIContact.h */,
@@ -266,7 +266,7 @@
 			files = (
 				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
 				5A109877183102C8005D6DDA /* main.m in Sources */,
-				5A109884183102C8005D6DDA /* AFIViewController.m in Sources */,
+				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
 			);

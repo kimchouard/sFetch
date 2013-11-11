@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AFISearchNavigationControllerDelegate;
+
 @interface AFISearchNavigationController : UINavigationController
+
+
+@property (weak) id <AFISearchNavigationControllerDelegate> searchDelegate;
+
+@end
+
+@protocol AFISearchNavigationControllerDelegate <NSObject>
+
+@optional
+
+- (BOOL)navigationSearchBarShouldBeginEditing:(UISearchBar *)searchBar;
 
 @end

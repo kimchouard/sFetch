@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 AnyFetch - INSA. All rights reserved.
 //
 
-#import "AFIViewController.h"
+#import "AFIContactSearchVC.h"
 #import "AFIContact.h"
 
 #define CELL_IDENTIFIER @"contactCell"
 #define CONTACT_NUMBER 20
 
-@interface AFIViewController () <UITableViewDataSource, UISearchBarDelegate>
+@interface AFIContactSearchVC () <UITableViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation AFIViewController
+@implementation AFIContactSearchVC
 
 - (void)viewDidAppear:(BOOL)animated
 {

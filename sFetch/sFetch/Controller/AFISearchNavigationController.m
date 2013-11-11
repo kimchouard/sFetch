@@ -33,10 +33,23 @@
     [view addSubview:self.searchBar];
 }
 
+#pragma mark UISearchBarDelegate
+
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
-    [self popToRootViewControllerAnimated:YES];
+    if ([self.delegate respondsToSelector:@selector(navigationSearchBarShouldBeginEditing:)]) {
+        if ([self.searchDelegate navigationSearchBarShouldBeginEditing:searchBar]) {
+            [self popToRootViewControllerAnimated:YES];
+            [self.searchBar setShowsCancelButton:YES animated:YES];
+        }
+    }
     return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    [self.searchBar setShowsCancelButton:NO animated:YES];
 }
 
 @end

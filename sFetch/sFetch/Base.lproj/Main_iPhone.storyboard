@@ -25,11 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-395" y="-194"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact SearchVC-->
         <scene sceneID="Lm6-wC-Ujg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fa8-HU-MMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="JVv-4t-4U9" customClass="AFIViewController" sceneMemberID="viewController">
+                <viewController id="JVv-4t-4U9" customClass="AFIContactSearchVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wqM-sU-BOk"/>
                         <viewControllerLayoutGuide type="bottom" id="mc2-Zj-jSl"/>
@@ -54,6 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aqA-z0-pHy"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fa8-HU-MMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944" y="-204"/>
         </scene>
@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="1427" y="-204"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact SearchVC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="AFIViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="AFIContactSearchVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6hU-JP-4BL"/>
                         <viewControllerLayoutGuide type="bottom" id="vvI-vG-b5f"/>
@@ -96,7 +96,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" textLabel="7t8-hj-DkK" detailTextLabel="zie-eo-iTZ" style="IBUITableViewCellStyleSubtitle" id="1SO-SG-KEW">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1SO-SG-KEW">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1SO-SG-KEW" id="nbz-wI-cfy">
                                             <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>

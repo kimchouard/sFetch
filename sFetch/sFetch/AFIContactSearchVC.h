@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AFIViewController : UIViewController
+@interface AFIContactSearchVC : UIViewController
 
 
 
