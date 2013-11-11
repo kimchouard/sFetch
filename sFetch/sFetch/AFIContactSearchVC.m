@@ -9,8 +9,10 @@
 #import "AFIContactSearchVC.h"
 #import "AFIContact.h"
 #import "AFISearchNavigationController.h"
+#import "AFIContactVC.h"
 
 #define CELL_IDENTIFIER @"contactCell"
+#define SEGUE_IDENTIFIER @"displayContactSegue"
 #define CONTACT_NUMBER 20
 
 @interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate>
@@ -31,14 +33,13 @@
 {
     [super viewDidAppear:animated];
     
+    ((AFISearchNavigationController *)self.navigationController).searchDelegate = self;
+    
 }
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    ((AFISearchNavigationController *)self.navigationController).searchDelegate = self;
     
     [self generateSampleData];
     _isSearching = NO;
@@ -123,6 +124,26 @@
     [self filterListForSearchText:searchText];
     self.isSearching = (searchText.length);
     [self.tableView reloadData];
+}
+
+#pragma mark Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [((AFISearchNavigationController *)self.navigationController) hideKeyboardAndCancelButton];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    
+    if ([segue.identifier isEqualToString:SEGUE_IDENTIFIER]) {
+        if ([segue.destinationViewController isMemberOfClass:[AFIContactVC class]]) {
+            AFIContactVC *destinationVC = (AFIContactVC *)segue.destinationViewController;
+            
+            if (self.isSearching) {
+                destinationVC.contact = [self.filteredData objectAtIndex:indexPath.row];
+            } else {
+                destinationVC.contact = [self.data objectAtIndex:indexPath.row];
+            }
+        }
+    }
 }
 
 

@@ -7,11 +7,14 @@
 //
 
 #import "AFISearchNavigationController.h"
+#import "AFIContact.h"
 
 
 @interface AFISearchNavigationController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) NSString *lastSearchedString;
 
 @end
 
@@ -33,6 +36,24 @@
     [view addSubview:self.searchBar];
 }
 
+- (void)showKeyboardAndCancelButton
+{
+    self.searchBar.text = self.lastSearchedString;
+    [self popToRootViewControllerAnimated:YES];
+    [self.searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)hideKeyboardAndCancelButton
+{
+    [self.searchBar resignFirstResponder];
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+}
+
+- (void)setDisplayedSearchString:(NSString *)string
+{
+    self.searchBar.text = string;
+}
+
 #pragma mark UISearchBarDelegate
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
@@ -40,15 +61,18 @@
     if ([self.delegate respondsToSelector:@selector(navigationSearchBarShouldBeginEditing:)]) {
         [self.searchDelegate navigationSearchBarShouldBeginEditing:searchBar];
     }
-    [self popToRootViewControllerAnimated:YES];
-    [self.searchBar setShowsCancelButton:YES animated:YES];
+    [self showKeyboardAndCancelButton];
     return YES;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    [self.searchBar resignFirstResponder];
-    [self.searchBar setShowsCancelButton:NO animated:YES];
+    AFIContactVC *destinationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIContactVC"];
+    
+    destinationVC.contact = self.lastContactViewed;
+    
+    [self pushViewController:destinationVC animated:YES];
+    [self hideKeyboardAndCancelButton];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -56,6 +80,7 @@
     if ([self.searchDelegate respondsToSelector:@selector(navigationSearchBar:textDidChange:)]) {
         [self.searchDelegate navigationSearchBar:searchBar textDidChange:searchText];
     }
+    self.lastSearchedString = searchText;
 }
 
 @end

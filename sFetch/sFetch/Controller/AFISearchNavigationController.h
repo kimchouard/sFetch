@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFIContactVC.h"
 
 @protocol AFISearchNavigationControllerDelegate;
 
@@ -14,6 +15,15 @@
 
 
 @property (weak) id <AFISearchNavigationControllerDelegate> searchDelegate;
+@property (strong, nonatomic) AFIContact *lastContactViewed;
+
+
+- (void)showKeyboardAndCancelButton;
+- (void)hideKeyboardAndCancelButton;
+
+- (void)setDisplayedSearchString:(NSString *)string;
+
+
 
 @end
 

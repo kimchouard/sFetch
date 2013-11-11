@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFIContact.h"
 
 @interface AFIContactVC : UIViewController
+
+@property (strong, nonatomic) AFIContact *contact;
 
 @end
