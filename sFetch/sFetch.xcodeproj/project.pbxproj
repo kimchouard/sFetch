@@ -23,6 +23,7 @@
 		5A109897183102C8005D6DDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A109895183102C8005D6DDA /* InfoPlist.strings */; };
 		5A109899183102C8005D6DDA /* sFetchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A109898183102C8005D6DDA /* sFetchTests.m */; };
 		5A1098A418310673005D6DDA /* AFIContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A318310673005D6DDA /* AFIContact.m */; };
+		5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		5A109898183102C8005D6DDA /* sFetchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sFetchTests.m; sourceTree = "<group>"; };
 		5A1098A218310673005D6DDA /* AFIContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIContact.h; path = Model/AFIContact.h; sourceTree = "<group>"; };
 		5A1098A318310673005D6DDA /* AFIContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContact.m; path = Model/AFIContact.m; sourceTree = "<group>"; };
+		5A1098A818313DE7005D6DDA /* AFISearchNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFISearchNavigationController.h; path = Controller/AFISearchNavigationController.h; sourceTree = "<group>"; };
+		5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFISearchNavigationController.m; path = Controller/AFISearchNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				5A10987F183102C8005D6DDA /* Main_iPad.storyboard */,
 				5A109882183102C8005D6DDA /* AFIViewController.h */,
 				5A109883183102C8005D6DDA /* AFIViewController.m */,
+				5A1098A818313DE7005D6DDA /* AFISearchNavigationController.h */,
+				5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */,
 				5A1098A218310673005D6DDA /* AFIContact.h */,
 				5A1098A318310673005D6DDA /* AFIContact.m */,
 				5A109885183102C8005D6DDA /* Images.xcassets */,
@@ -259,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIViewController.m in Sources */,
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,

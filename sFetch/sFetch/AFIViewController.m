@@ -14,7 +14,7 @@
 
 @interface AFIViewController () <UITableViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSArray *data; // of AFIContact
 @property (strong, nonatomic) NSArray *filteredData; // of AFIContact
@@ -25,11 +25,16 @@
 
 @implementation AFIViewController
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
     [self generateSampleData];
     _isSearching = NO;
@@ -58,7 +63,6 @@
 - (void)setIsSearching:(BOOL)isSearching
 {
     _isSearching = isSearching;
-    [self.searchBar setShowsCancelButton:YES animated:YES];
 }
 
 #pragma mark UITableViewDataSource
