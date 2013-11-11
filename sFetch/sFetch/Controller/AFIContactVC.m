@@ -75,4 +75,13 @@
     self.pageControl.currentPage = visiblePath.row;
 }
 
+#pragma mark UIPageControlDelegate
+
+- (IBAction)pageControl:(UIPageControl *)sender
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:sender.currentPage inSection:0];
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+}
+
+
 @end

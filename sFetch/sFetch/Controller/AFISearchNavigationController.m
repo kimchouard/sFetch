@@ -67,11 +67,12 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    AFIContactVC *destinationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIContactVC"];
+    if (self.lastContactViewed) {
+        AFIContactVC *destinationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIContactVC"];
+        destinationVC.contact = self.lastContactViewed;
+        [self pushViewController:destinationVC animated:YES];
+    }
     
-    destinationVC.contact = self.lastContactViewed;
-    
-    [self pushViewController:destinationVC animated:YES];
     [self hideKeyboardAndCancelButton];
 }
 
@@ -79,6 +80,9 @@
 {
     if ([self.searchDelegate respondsToSelector:@selector(navigationSearchBar:textDidChange:)]) {
         [self.searchDelegate navigationSearchBar:searchBar textDidChange:searchText];
+    }
+    if ([searchText isEqualToString:@""]) {
+        self.lastContactViewed = nil;
     }
     self.lastSearchedString = searchText;
 }
