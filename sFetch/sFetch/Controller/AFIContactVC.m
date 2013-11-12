@@ -8,6 +8,7 @@
 
 #import "AFIContactVC.h"
 #import "AFISearchNavigationController.h"
+#import "AFIProfileSumaryCell.h"
 
 @interface AFIContactVC () <UICollectionViewDataSource, UIScrollViewDelegate>
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [AFIProfileSumaryCell registerToCollectionview:self.collectionView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -47,23 +49,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"tempCell";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
     switch (indexPath.row) {
         case 0:
-            cell.backgroundColor = [UIColor redColor];
-            break;
+        {
+            AFIProfileSumaryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[AFIProfileSumaryCell reusableIdentifier] forIndexPath:indexPath];
+            
+            cell.firstNameLabel.text = self.contact.firstName;
+            cell.lastNameLabel.text = self.contact.lastName;
+            
+            return cell;
+        }
         case 1:
+        {
+            NSString *identifier = @"tempCell";
+            UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             cell.backgroundColor = [UIColor greenColor];
-            break;
+            return cell;
+        }
         case 2:
+        {
+            NSString *identifier = @"tempCell";
+            UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
             cell.backgroundColor = [UIColor blueColor];
-            break;
+            return cell;
+        }
+            default:
+            return nil;
     }
-    
-    
-    return cell;
 }
 
 

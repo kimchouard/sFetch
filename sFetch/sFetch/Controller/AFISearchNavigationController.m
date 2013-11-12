@@ -41,9 +41,21 @@
     self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchBar.delegate = self;
+    
+//    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 276, 44)];
+//    [self.searchBar insertSubview:whiteView aboveSubview:[self.searchBar.subviews lastObject]];
+//    [self.searchBar addSubview:whiteView];
+//    
+//    for ( UIView * subview in self.searchBar.subviews)
+//    {
+//        NSLog(@"%@", [subview class]);
+//        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground") ] )
+//            subview.alpha = 0.0;
+//        
+//        if ([subview isKindOfClass:NSClassFromString(@"UISegmentedControl") ] )
+//            subview.alpha = 0.0;
+//    }
     [view addSubview:self.searchBar];
-    
-    
 }
 
 - (void)showKeyboardAndCancelButton
@@ -62,6 +74,12 @@
 - (void)setDisplayedSearchString:(NSString *)string
 {
     self.searchBar.text = string;
+}
+
+- (void)setLastContactViewed:(AFIContact *)lastContactViewed
+{
+    _lastContactViewed = lastContactViewed;
+    self.lastSearchedString = _lastContactViewed.lastName;
 }
 
 #pragma mark UISearchBarDelegate
@@ -91,9 +109,6 @@
     if ([self.searchDelegate respondsToSelector:@selector(navigationSearchBar:textDidChange:)]) {
         [self.searchDelegate navigationSearchBar:searchBar textDidChange:searchText];
     }
-    if ([searchText isEqualToString:@""]) {
-        self.lastContactViewed = nil;
-    }
     self.lastSearchedString = searchText;
 }
 
@@ -102,7 +117,7 @@
 
 - (void)didTapeHomeButton
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
