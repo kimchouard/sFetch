@@ -13,6 +13,7 @@
 @interface AFISearchNavigationController () <UISearchBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UIButton *homeButton;
 
 @property (strong, nonatomic) NSString *lastSearchedString;
 
@@ -29,11 +30,20 @@
     [self.view addSubview:view];
     [self.navigationItem.titleView addSubview:view];
     
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 20.0, 320.0, 44.0)];
+    self.homeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.homeButton.frame = CGRectMake(0, 20, 44, 44);
+    [self.homeButton setTitle:@"H" forState:UIControlStateNormal];
+    [self.homeButton addTarget:self action:@selector(didTapeHomeButton) forControlEvents:UIControlEventAllTouchEvents];
+    
+    [view addSubview:self.homeButton];
+    
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(44, 20, 276, 44)];
     self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchBar.delegate = self;
     [view addSubview:self.searchBar];
+    
+    
 }
 
 - (void)showKeyboardAndCancelButton
@@ -85,6 +95,14 @@
         self.lastContactViewed = nil;
     }
     self.lastSearchedString = searchText;
+}
+
+
+#pragma mark UIButton Delegate
+
+- (void)didTapeHomeButton
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
