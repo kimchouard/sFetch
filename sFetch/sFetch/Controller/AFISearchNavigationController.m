@@ -60,6 +60,7 @@
 
 - (void)showKeyboardAndCancelButton
 {
+    
     //self.searchBar.text = self.lastSearchedString;
     if([self.searchBar becomeFirstResponder]) {
         NSLog(@"Wazaaaa");
