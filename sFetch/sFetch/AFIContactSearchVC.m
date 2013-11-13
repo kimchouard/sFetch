@@ -13,7 +13,7 @@
 
 #define CELL_IDENTIFIER @"contactCell"
 #define SEGUE_IDENTIFIER @"displayContactSegue"
-#define CONTACT_NUMBER 20
+#define CONTACT_NUMBER 4
 
 @interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate>
 
