@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A05292A183272BA0079F0DA /* demo_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A052922183272BA0079F0DA /* demo_image.png */; };
-		5A05292B183272BA0079F0DA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5A052923183272BA0079F0DA /* LICENSE */; };
-		5A05292C183272BA0079F0DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5A052924183272BA0079F0DA /* README.md */; };
-		5A05292D183272BA0079F0DA /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052926183272BA0079F0DA /* UIImage+BlurredFrame.m */; };
-		5A05292E183272BA0079F0DA /* UIImage+BlurredFrame.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5A052927183272BA0079F0DA /* UIImage+BlurredFrame.podspec */; };
-		5A05292F183272BA0079F0DA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052929183272BA0079F0DA /* UIImage+ImageEffects.m */; };
 		5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052931183274EC0079F0DA /* AFILoginVC.m */; };
 		5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052934183278300079F0DA /* AFIWebViewVC.m */; };
 		5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A05293F18327CC50079F0DA /* AFIProfileSumaryCell.m */; };
@@ -53,14 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A052922183272BA0079F0DA /* demo_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo_image.png; sourceTree = "<group>"; };
-		5A052923183272BA0079F0DA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		5A052924183272BA0079F0DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		5A052925183272BA0079F0DA /* UIImage+BlurredFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurredFrame.h"; sourceTree = "<group>"; };
-		5A052926183272BA0079F0DA /* UIImage+BlurredFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurredFrame.m"; sourceTree = "<group>"; };
-		5A052927183272BA0079F0DA /* UIImage+BlurredFrame.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIImage+BlurredFrame.podspec"; sourceTree = "<group>"; };
-		5A052928183272BA0079F0DA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		5A052929183272BA0079F0DA /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		5A052930183274EC0079F0DA /* AFILoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFILoginVC.h; path = Controller/AFILoginVC.h; sourceTree = "<group>"; };
 		5A052931183274EC0079F0DA /* AFILoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFILoginVC.m; path = Controller/AFILoginVC.m; sourceTree = "<group>"; };
 		5A052933183278300079F0DA /* AFIWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIWebViewVC.h; path = Controller/AFIWebViewVC.h; sourceTree = "<group>"; };
@@ -131,22 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A052921183272BA0079F0DA /* UIImage-BlurredFrame */ = {
-			isa = PBXGroup;
-			children = (
-				5A052922183272BA0079F0DA /* demo_image.png */,
-				5A052923183272BA0079F0DA /* LICENSE */,
-				5A052924183272BA0079F0DA /* README.md */,
-				5A052925183272BA0079F0DA /* UIImage+BlurredFrame.h */,
-				5A052926183272BA0079F0DA /* UIImage+BlurredFrame.m */,
-				5A052927183272BA0079F0DA /* UIImage+BlurredFrame.podspec */,
-				5A052928183272BA0079F0DA /* UIImage+ImageEffects.h */,
-				5A052929183272BA0079F0DA /* UIImage+ImageEffects.m */,
-			);
-			name = "UIImage-BlurredFrame";
-			path = "../../UIImage-BlurredFrame";
-			sourceTree = "<group>";
-		};
 		5A05293618327AA60079F0DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +169,6 @@
 		5A10985E183102C8005D6DDA = {
 			isa = PBXGroup;
 			children = (
-				5A052921183272BA0079F0DA /* UIImage-BlurredFrame */,
 				5A109870183102C8005D6DDA /* sFetch */,
 				5A109892183102C8005D6DDA /* sFetchTests */,
 				5A109869183102C8005D6DDA /* Frameworks */,
@@ -364,15 +333,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A05292B183272BA0079F0DA /* LICENSE in Resources */,
-				5A05292A183272BA0079F0DA /* demo_image.png in Resources */,
 				5A109881183102C8005D6DDA /* Main_iPad.storyboard in Resources */,
 				5A05294218327CC50079F0DA /* AFIProfileSumaryCell.xib in Resources */,
-				5A05292C183272BA0079F0DA /* README.md in Resources */,
 				5A109886183102C8005D6DDA /* Images.xcassets in Resources */,
 				5A10987E183102C8005D6DDA /* Main_iPhone.storyboard in Resources */,
 				5A109875183102C8005D6DDA /* InfoPlist.strings in Resources */,
-				5A05292E183272BA0079F0DA /* UIImage+BlurredFrame.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,11 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A05292F183272BA0079F0DA /* UIImage+ImageEffects.m in Sources */,
 				5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */,
 				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
 				5AC7B2A11833BC88002F4957 /* AFIContactList.m in Sources */,
-				5A05292D183272BA0079F0DA /* UIImage+BlurredFrame.m in Sources */,
 				5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */,
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
