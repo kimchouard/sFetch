@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSArray *filteredData; // of AFIContact
 
 @property (nonatomic) BOOL isSearching;
+@property (nonatomic) BOOL firstAppearance;
 
 @end
 
@@ -39,12 +40,20 @@
     
     ((AFISearchNavigationController *)self.navigationController).searchDelegate = self;
     
+    if (self.firstAppearance) {
+        self.firstAppearance = NO;
+    } else {
+        [((AFISearchNavigationController *) self.navigationController) showKeyboardAndCancelButton];
+    }
+    
 //    [self triggerAutoRefresh];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.firstAppearance = YES;
     
     self.refreshControl= [[UIRefreshControl alloc] init];
     self.refreshControl.tintColor = [UIColor whiteColor];
