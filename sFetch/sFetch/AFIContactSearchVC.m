@@ -18,7 +18,8 @@
 @interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
 
 @property (strong, nonatomic) NSArray *data; // of AFIContact
 @property (strong, nonatomic) NSArray *filteredData; // of AFIContact
@@ -35,11 +36,17 @@
     
     ((AFISearchNavigationController *)self.navigationController).searchDelegate = self;
     
+    [self triggerAutoRefresh];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.refreshControl= [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     
     [self generateSampleData];
     _isSearching = NO;
@@ -55,6 +62,19 @@
     }
     
     self.data = tempData;
+}
+
+- (void)triggerAutoRefresh
+{
+    CGPoint newOffset = CGPointMake(0, -30);
+    [self.tableView setContentOffset:newOffset animated:YES];
+    [self.refreshControl beginRefreshing];
+    
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self refreshTableView];
+    });
 }
 
 #pragma mark Lazy instantiation
@@ -124,6 +144,13 @@
     [self filterListForSearchText:searchText];
     self.isSearching = (searchText.length);
     [self.tableView reloadData];
+}
+
+#pragma mark UIRefreshControlDelegate
+
+-(void)refreshTableView
+{
+    [self.refreshControl endRefreshing];
 }
 
 #pragma mark Segue
