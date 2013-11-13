@@ -7,16 +7,17 @@
 //
 
 #import "AFIPokeVC.h"
+#import "AFIURLConnection.h"
 
 #define SEGUE_IDENTIFIER @"loginSegue"
 
-@interface AFIPokeVC () <NSURLConnectionDelegate, NSURLConnectionDataDelegate, UITextFieldDelegate>
+@interface AFIPokeVC () <AFIURLConnectionDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *urlLabel;
 @property (weak, nonatomic) IBOutlet UITextField *mailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property (strong, nonatomic) NSURLConnection *loginConnection;
+@property (strong, nonatomic) AFIURLConnection *loginConnection;
 
 @end
 
@@ -63,23 +64,15 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     
-    NSString *loginPassword = [NSString stringWithFormat:@"%@:%@",login,password];
-    NSLog(@"%@",loginPassword);
+    self.loginConnection = [AFIURLConnection connectionWithRequest:request
+                                                          delegate:self
+                                                             login:login
+                                                       andPassword:password];
     
-    NSData *plainData = [loginPassword dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *base64String = [plainData base64EncodedStringWithOptions:0];
-    
-    NSString *value = [NSString stringWithFormat:@"Basic %@",base64String];
-    NSLog(@"%@",value);
-    NSDictionary *fields = @{@"Authorization" : value};
-    
-    [request setAllHTTPHeaderFields:fields];
-    
-    self.loginConnection = [NSURLConnection connectionWithRequest:request delegate:self];
-    [self startConnection];
+    [self.loginConnection start];
 }
 
-#pragma mark NSURLConnectionDelegate
+#pragma mark AFIURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
@@ -87,11 +80,9 @@
     [self fetchedData:data];
 }
 
-- (void)startConnection
+- (void)connectionDidStart:(AFIURLConnection *)connection
 {
     [self.activityIndicator startAnimating];
-    
-    [self.loginConnection start];
 }
 
 #define ERROR_CODE_KEY @"code"

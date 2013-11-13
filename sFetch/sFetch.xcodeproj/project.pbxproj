@@ -35,6 +35,8 @@
 		5A1098A418310673005D6DDA /* AFIContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A318310673005D6DDA /* AFIContact.m */; };
 		5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */; };
 		5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098AC183141D3005D6DDA /* AFIContactVC.m */; };
+		5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B2931833689A002F4957 /* AFIURLConnection.m */; };
+		5AC7B298183379B0002F4957 /* AFIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B297183379B0002F4957 /* AFIUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,10 @@
 		5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFISearchNavigationController.m; path = Controller/AFISearchNavigationController.m; sourceTree = "<group>"; };
 		5A1098AB183141D3005D6DDA /* AFIContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIContactVC.h; path = Controller/AFIContactVC.h; sourceTree = "<group>"; };
 		5A1098AC183141D3005D6DDA /* AFIContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContactVC.m; path = Controller/AFIContactVC.m; sourceTree = "<group>"; };
+		5AC7B2921833689A002F4957 /* AFIURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIURLConnection.h; path = Connection/AFIURLConnection.h; sourceTree = "<group>"; };
+		5AC7B2931833689A002F4957 /* AFIURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIURLConnection.m; path = Connection/AFIURLConnection.m; sourceTree = "<group>"; };
+		5AC7B296183379B0002F4957 /* AFIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIUser.h; path = Model/AFIUser.h; sourceTree = "<group>"; };
+		5AC7B297183379B0002F4957 /* AFIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIUser.m; path = Model/AFIUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,8 @@
 			children = (
 				5A1098A218310673005D6DDA /* AFIContact.h */,
 				5A1098A318310673005D6DDA /* AFIContact.m */,
+				5AC7B296183379B0002F4957 /* AFIUser.h */,
+				5AC7B297183379B0002F4957 /* AFIUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -216,6 +224,7 @@
 				5A10987A183102C8005D6DDA /* AFIAppDelegate.m */,
 				5A10987C183102C8005D6DDA /* Main_iPhone.storyboard */,
 				5A10987F183102C8005D6DDA /* Main_iPad.storyboard */,
+				5AC7B295183368A0002F4957 /* Connection */,
 				5A05294318327CCA0079F0DA /* Views */,
 				5A05293618327AA60079F0DA /* Controllers */,
 				5A05293718327AB00079F0DA /* Models */,
@@ -252,6 +261,15 @@
 				5A109895183102C8005D6DDA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AC7B295183368A0002F4957 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				5AC7B2921833689A002F4957 /* AFIURLConnection.h */,
+				5AC7B2931833689A002F4957 /* AFIURLConnection.m */,
+			);
+			name = Connection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,9 +384,11 @@
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
+				5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */,
 				5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */,
 				5A052932183274EC0079F0DA /* AFIPokeVC.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
+				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
