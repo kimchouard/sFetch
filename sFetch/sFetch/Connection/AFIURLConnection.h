@@ -10,9 +10,9 @@
 
 @protocol AFIURLConnectionDelegate;
 
-@interface AFIURLConnection : NSURLConnection
+@interface AFIURLConnection : NSURLConnection <NSURLConnectionDataDelegate>
 
-@property (weak, nonatomic) id <AFIURLConnectionDelegate> delegate;
+@property (weak, nonatomic) id <AFIURLConnectionDelegate> afiDelegate;
 
 @property (strong, nonatomic) NSString *login;
 @property (strong, nonatomic) NSString *password;
@@ -26,10 +26,15 @@
                                    delegate:(id)delegate login:(NSString *)login
                                 andPassword:(NSString *)password;
 
-- (id)initWithRequest:(NSURLRequest *)request delegate:(id)delegate;
-+ (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request delegate:(id)delegate;
+- (id)initWithRequest:(NSURLRequest *)request
+             delegate:(id)delegate;
 
-- (void)start;
++ (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request
+                                   delegate:(id)delegate;
+
+- (void)setHTTPAuthorizationHeaderToRequest:(NSMutableURLRequest *)request;
+
+- (void)startConnection;
 
 @end
 

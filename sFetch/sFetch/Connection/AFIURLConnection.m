@@ -9,7 +9,9 @@
 #import "AFIURLConnection.h"
 #import "AFIUser.h"
 
-@interface AFIURLConnection() <NSURLConnectionDataDelegate>
+@interface AFIURLConnection()
+
+@property (strong, nonatomic) NSMutableData *data;
 
 @end;
 
@@ -22,7 +24,7 @@
 {
     _login = login;
     _password = password;
-    _delegate = delegate;
+    _afiDelegate = delegate;
     [self setHTTPAuthorizationHeaderToRequest:request];
     self = [super initWithRequest:request delegate:self];
     if (self) {
@@ -59,12 +61,14 @@
     return [[AFIURLConnection alloc] initWithRequest:request delegate:delegate];
 }
 
-- (void)start
+- (void)startConnection
 {
+    NSLog(@"%@:%@", self.login, self.password);
+    self.data = [[NSMutableData alloc] init];
     [super start];
-    if ([self.delegate respondsToSelector:@selector(connectionDidStart:)])
+    if ([self.afiDelegate respondsToSelector:@selector(connectionDidStart:)])
     {
-        [self.delegate connectionDidStart:self];
+        [self.afiDelegate connectionDidStart:self];
     }
 }
 
@@ -84,15 +88,21 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if ([self.delegate respondsToSelector:@selector(connection:didFailWithError:)]) {
-        [self.delegate connection:self didFailWithError:error];
+    if ([self.afiDelegate respondsToSelector:@selector(connection:didFailWithError:)]) {
+        [self.afiDelegate connection:self didFailWithError:error];
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    if ([self.delegate respondsToSelector:@selector(connection:didReceiveData:)]) {
-        [self.delegate connection:self didReceiveData:data];
+    [self.data appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    //NSLog([NSString stringWithUTF8String:[data bytes]]);
+    if ([self.afiDelegate respondsToSelector:@selector(connection:didReceiveData:)]) {
+        [self.afiDelegate connection:self didReceiveData:self.data];
     }
 }
 

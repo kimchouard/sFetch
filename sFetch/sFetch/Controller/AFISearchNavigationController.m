@@ -79,7 +79,7 @@
 - (void)setLastContactViewed:(AFIContact *)lastContactViewed
 {
     _lastContactViewed = lastContactViewed;
-    self.lastSearchedString = _lastContactViewed.lastName;
+    self.lastSearchedString = _lastContactViewed.name;
 }
 
 #pragma mark UISearchBarDelegate

@@ -11,13 +11,11 @@
 @interface AFILoginConnection : AFIURLConnection
 
 
-- (id)initWithRequest:(NSMutableURLRequest *)request
-             delegate:(id) delegate
+- (id)initWithDelegate:(id) delegate
                 login:(NSString *)login
           andPassword:(NSString *)password;
 
-+ (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request
-                                   delegate:(id)delegate login:(NSString *)login
++ (AFILoginConnection *)connectionWithDelegate:(id)delegate login:(NSString *)login
                                 andPassword:(NSString *)password;
 
 @end

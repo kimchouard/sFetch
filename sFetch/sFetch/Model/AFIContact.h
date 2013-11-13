@@ -8,14 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+#define SERVER_KEY_NAME @"name"
+#define SERVER_KEY_JOB @"job"
+#define SERVER_KEY_IMG_URL @"image"
+
 @interface AFIContact : NSObject
 
-@property (strong, nonatomic) NSString *firstName;
-@property (strong, nonatomic) NSString *lastName;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *job;
+@property (strong, nonatomic) NSString *imageURL;
+
 
 - (id)initLazy;
+- (id)initWithInfo:(NSDictionary *)info;
 
 + (AFIContact *)defaultContact;
 
++ (AFIContact *)contactWithInfo:(NSDictionary *)info;
+
+//+ (NSArray *)contactArrayWithDictionary:(NSDictionary *)dictionary;
 
 @end

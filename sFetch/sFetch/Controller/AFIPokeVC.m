@@ -7,7 +7,7 @@
 //
 
 #import "AFIPokeVC.h"
-#import "AFIURLConnection.h"
+#import "AFILoginConnection.h"
 
 #define SEGUE_IDENTIFIER @"loginSegue"
 
@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property (strong, nonatomic) AFIURLConnection *loginConnection;
+@property (strong, nonatomic) AFILoginConnection *loginConnection;
 
 @end
 
@@ -55,21 +55,19 @@
 {
     [self closeKeyboard];
     
-    NSString *URL = @"http://api.anyfetch.com";
+    NSString *URL;
     URL = self.urlLabel.text;
     NSString *login = @"dartus.pierremarie@gmail.com";
     login = self.mailLabel.text;
     NSString *password = @"Pmdmedrd";
     password = self.passwordLabel.text;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     
-    self.loginConnection = [AFIURLConnection connectionWithRequest:request
-                                                          delegate:self
-                                                             login:login
-                                                       andPassword:password];
+    self.loginConnection = [AFILoginConnection connectionWithDelegate:self
+                                                                login:login
+                                                          andPassword:password];
     
-    [self.loginConnection start];
+    [self.loginConnection startConnection];
 }
 
 #pragma mark AFIURLConnectionDelegate
@@ -105,13 +103,16 @@
     
     NSArray *providerStatus = [json objectForKey:PROVIDER_STATUS_KEY];
     
+    BOOL success = NO;
     for (NSDictionary *provider in providerStatus) {
         NSString *name = [provider objectForKey:PROVIDER_NAME_KEY];
-        //NSLog(@"name ='%@'", name);
         if ([name isEqualToString:@"Salesforce"] || [name isEqualToString:@"(local) Salesforce"]) {
-            
-            [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
+            success = YES;
         }
+    }
+    
+    if (success) {
+        [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
     }
 }
 

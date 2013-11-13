@@ -45,8 +45,8 @@
                 <constraint firstAttribute="trailing" secondItem="MeV-GR-7WS" secondAttribute="trailing" id="cnW-IG-OU2"/>
             </constraints>
             <connections>
-                <outlet property="firstNameLabel" destination="hQ1-u7-i1u" id="UxV-VO-mwM"/>
-                <outlet property="lastNameLabel" destination="jDY-dS-ouf" id="mw2-FW-fQM"/>
+                <outlet property="jobLabel" destination="jDY-dS-ouf" id="jb8-Tf-vuL"/>
+                <outlet property="nameLabel" destination="hQ1-u7-i1u" id="LIo-pH-W3f"/>
             </connections>
         </collectionViewCell>
     </objects>

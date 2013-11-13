@@ -31,7 +31,7 @@
     
     AFISearchNavigationController *navVC = (AFISearchNavigationController *)self.navigationController;
     
-    [navVC setDisplayedSearchString:self.contact.lastName];
+    [navVC setDisplayedSearchString:self.contact.name];
     navVC.lastContactViewed = self.contact;    
 }
 
@@ -54,8 +54,8 @@
         {
             AFIProfileSumaryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[AFIProfileSumaryCell reusableIdentifier] forIndexPath:indexPath];
             
-            cell.firstNameLabel.text = self.contact.firstName;
-            cell.lastNameLabel.text = self.contact.lastName;
+            cell.nameLabel.text = self.contact.name;
+            //cell.jobLabel.text = self.contact.job;
             
             return cell;
         }

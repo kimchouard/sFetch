@@ -11,9 +11,9 @@
 @interface AFIProfileSumaryCell : UICollectionViewCell
 
 
-@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jobLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 + (NSString *)reusableIdentifier;
 + (void)registerToCollectionview:(UICollectionView *)collectionview;

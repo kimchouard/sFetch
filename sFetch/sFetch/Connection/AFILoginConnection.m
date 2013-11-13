@@ -7,35 +7,38 @@
 //
 
 #import "AFILoginConnection.h"
+#import "AFIUser.h"
+
+#define LOGIN_URL @"http://api.anyfetch.com"
 
 @implementation AFILoginConnection
 
-- (id)initWithRequest:(NSMutableURLRequest *)request
-             delegate:(id)delegate
+- (id)initWithDelegate:(id)delegate
                 login:(NSString *)login
           andPassword:(NSString *)password
-{
-    self.login = login;
-    self.password = password;
-    self.delegate = delegate;
-//    [self setHTTPAuthorizationHeaderToRequest:request];
-    self = [super initWithRequest:request delegate:self];
+{    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:LOGIN_URL]];
+    
+    self = [super initWithRequest:request delegate:delegate login:login andPassword:password];
     if (self) {
         
     }
     return self;
 }
 
-+ (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request
-                                   delegate:(id)delegate
++ (AFILoginConnection *)connectionWithDelegate:(id)delegate
                                       login:(NSString *)login
                                 andPassword:(NSString *)password
 {
-    AFIURLConnection *connection = [[AFIURLConnection alloc] initWithRequest:request
-                                                                    delegate:delegate
-                                                                       login:login
-                                                                 andPassword:password];
-    return connection;
+    return [[AFILoginConnection alloc] initWithDelegate:delegate
+                                                  login:login
+                                            andPassword:password];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [AFIUser setLogin:self.login andPassword:self.password];
+    [super connection:connection didReceiveData:data];
 }
 
 @end

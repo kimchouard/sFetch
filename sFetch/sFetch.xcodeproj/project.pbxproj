@@ -38,6 +38,8 @@
 		5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B2931833689A002F4957 /* AFIURLConnection.m */; };
 		5AC7B298183379B0002F4957 /* AFIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B297183379B0002F4957 /* AFIUser.m */; };
 		5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */; };
+		5AC7B29E18339A65002F4957 /* AFIURLConnectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B29D18339A65002F4957 /* AFIURLConnectionFactory.m */; };
+		5AC7B2A11833BC88002F4957 /* AFIContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B2A01833BC88002F4957 /* AFIContactList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,10 @@
 		5AC7B297183379B0002F4957 /* AFIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIUser.m; path = Model/AFIUser.m; sourceTree = "<group>"; };
 		5AC7B29918337FCC002F4957 /* AFILoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFILoginConnection.h; path = Connection/AFILoginConnection.h; sourceTree = "<group>"; };
 		5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFILoginConnection.m; path = Connection/AFILoginConnection.m; sourceTree = "<group>"; };
+		5AC7B29C18339A65002F4957 /* AFIURLConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIURLConnectionFactory.h; path = Connection/AFIURLConnectionFactory.h; sourceTree = "<group>"; };
+		5AC7B29D18339A65002F4957 /* AFIURLConnectionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIURLConnectionFactory.m; path = Connection/AFIURLConnectionFactory.m; sourceTree = "<group>"; };
+		5AC7B29F1833BC88002F4957 /* AFIContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIContactList.h; path = Model/AFIContactList.h; sourceTree = "<group>"; };
+		5AC7B2A01833BC88002F4957 /* AFIContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContactList.m; path = Model/AFIContactList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,8 @@
 			children = (
 				5A1098A218310673005D6DDA /* AFIContact.h */,
 				5A1098A318310673005D6DDA /* AFIContact.m */,
+				5AC7B29F1833BC88002F4957 /* AFIContactList.h */,
+				5AC7B2A01833BC88002F4957 /* AFIContactList.m */,
 				5AC7B296183379B0002F4957 /* AFIUser.h */,
 				5AC7B297183379B0002F4957 /* AFIUser.m */,
 			);
@@ -273,6 +281,8 @@
 				5AC7B2931833689A002F4957 /* AFIURLConnection.m */,
 				5AC7B29918337FCC002F4957 /* AFILoginConnection.h */,
 				5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */,
+				5AC7B29C18339A65002F4957 /* AFIURLConnectionFactory.h */,
+				5AC7B29D18339A65002F4957 /* AFIURLConnectionFactory.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -384,11 +394,13 @@
 				5A05292F183272BA0079F0DA /* UIImage+ImageEffects.m in Sources */,
 				5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */,
 				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
+				5AC7B2A11833BC88002F4957 /* AFIContactList.m in Sources */,
 				5A05292D183272BA0079F0DA /* UIImage+BlurredFrame.m in Sources */,
 				5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */,
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
+				5AC7B29E18339A65002F4957 /* AFIURLConnectionFactory.m in Sources */,
 				5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */,
 				5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */,
 				5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */,

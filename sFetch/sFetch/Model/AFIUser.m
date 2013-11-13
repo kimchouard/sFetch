@@ -73,7 +73,9 @@
     
     NSString *filePath =[applicationDocumentsDir stringByAppendingPathComponent:USER_FILE_PATH];
     
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    AFIUser *user = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    
+    return (user) ? user : [[AFIUser alloc] init];
 }
 
 #pragma mark Shared Instances

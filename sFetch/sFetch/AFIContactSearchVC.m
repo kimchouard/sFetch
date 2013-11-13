@@ -7,19 +7,22 @@
 //
 
 #import "AFIContactSearchVC.h"
-#import "AFIContact.h"
+#import "AFIContactList.h"
 #import "AFISearchNavigationController.h"
 #import "AFIContactVC.h"
+#import "AFIURLConnectionFactory.h"
 
 #define CELL_IDENTIFIER @"contactCell"
 #define SEGUE_IDENTIFIER @"displayContactSegue"
 #define CONTACT_NUMBER 4
 
-@interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate>
+@interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate, AFIURLConnectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
+
+@property (strong, nonatomic) AFIURLConnection *contactsRequestConnection;
 
 @property (strong, nonatomic) NSArray *data; // of AFIContact
 @property (strong, nonatomic) NSArray *filteredData; // of AFIContact
@@ -36,7 +39,7 @@
     
     ((AFISearchNavigationController *)self.navigationController).searchDelegate = self;
     
-    [self triggerAutoRefresh];
+//    [self triggerAutoRefresh];
 }
 
 - (void)viewDidLoad
@@ -45,11 +48,19 @@
     
     self.refreshControl= [[UIRefreshControl alloc] init];
     self.refreshControl.tintColor = [UIColor whiteColor];
-    [self.refreshControl addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(requestContacts) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
     [self generateSampleData];
     _isSearching = NO;
+}
+
+- (AFIURLConnection *)contactsRequestConnection
+{
+    if (!_contactsRequestConnection) {
+        _contactsRequestConnection = [AFIURLConnectionFactory connectionGetContactWithDelegate:self];
+    }
+    return _contactsRequestConnection;
 }
 
 - (void)generateSampleData
@@ -73,7 +84,7 @@
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self refreshTableView];
+        [self requestContacts];
     });
 }
 
@@ -90,7 +101,45 @@
     _isSearching = isSearching;
 }
 
+#pragma mark AFIURLConnectionDelegate
+
+- (void)connectionDidStart:(AFIURLConnection *)connection
+{
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    [self.refreshControl endRefreshing];
+    
+    [AFIContactList setWithDictionary:json];
+    [self reloadData];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self.refreshControl endRefreshing];
+    
+    [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
+    
+    NSLog(@"%@", error);
+}
+
 #pragma mark UITableViewDataSource
+
+- (void)reloadData
+{
+    self.data = [AFIContactList contacts];
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
+    [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -119,8 +168,8 @@
         contact = [self.data objectAtIndex:indexPath.row];
     }
     
-    cell.textLabel.text = contact.lastName;
-    cell.detailTextLabel.text = contact.firstName;
+    cell.textLabel.text = contact.name;
+    cell.detailTextLabel.text = (![contact.job isKindOfClass:[NSNull class]]) ? contact.job : @"No job";
     
     return cell;
 }
@@ -148,9 +197,9 @@
 
 #pragma mark UIRefreshControlDelegate
 
--(void)refreshTableView
+- (void)requestContacts
 {
-    [self.refreshControl endRefreshing];
+    [self.contactsRequestConnection startConnection];
 }
 
 #pragma mark Segue
