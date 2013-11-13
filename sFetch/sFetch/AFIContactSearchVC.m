@@ -16,7 +16,7 @@
 #define SEGUE_IDENTIFIER @"displayContactSegue"
 #define CONTACT_NUMBER 4
 
-@interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate, AFIURLConnectionDelegate>
+@interface AFIContactSearchVC () <UITableViewDataSource, AFISearchNavigationControllerDelegate, AFIURLConnectionDelegate, AFIContactListDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -51,7 +51,11 @@
     [self.refreshControl addTarget:self action:@selector(requestContacts) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
-    [self generateSampleData];
+//    [self generateSampleData];
+    
+    [AFIContactList sharedList].delegate = self;
+    [self reloadData];
+    
     _isSearching = NO;
 }
 
@@ -88,6 +92,13 @@
     });
 }
 
+- (void)reloadData
+{
+    self.data = [AFIContactList contacts];
+    NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
+    [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 #pragma mark Lazy instantiation
 
 - (NSArray *)filteredData
@@ -117,10 +128,13 @@
                           options:kNilOptions
                           error:&error];
     
+    //NSLog(@"%@", json);
+    
     [self.refreshControl endRefreshing];
     
     [AFIContactList setWithDictionary:json];
     [self reloadData];
+    self.contactsRequestConnection = nil;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -130,16 +144,10 @@
     [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
     
     NSLog(@"%@", error);
+    self.contactsRequestConnection = nil;
 }
 
 #pragma mark UITableViewDataSource
-
-- (void)reloadData
-{
-    self.data = [AFIContactList contacts];
-    NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
-    [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -183,7 +191,7 @@
 
 - (void)filterListForSearchText:(NSString *)searchText
 {
-    NSPredicate *sPredicate = [NSPredicate predicateWithFormat:@"SELF.lastName contains[c] %@", searchText];
+    NSPredicate *sPredicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@ OR SELF.job contains[c] %@", searchText, searchText];
     
     self.filteredData = [self.data filteredArrayUsingPredicate:sPredicate];
 }
@@ -200,6 +208,13 @@
 - (void)requestContacts
 {
     [self.contactsRequestConnection startConnection];
+}
+
+#pragma mark AFIContactListDelegate
+
+- (void)contactListDidchange
+{
+    [self reloadData];
 }
 
 #pragma mark Segue

@@ -9,12 +9,26 @@
 #import <Foundation/Foundation.h>
 #import "AFIContact.h"
 
+@protocol AFIContactListDelegate;
+
 @interface AFIContactList : NSObject
 
 @property (nonatomic) BOOL isLoading;
 
+@property (weak, nonatomic) id <AFIContactListDelegate> delegate;
+
++ (AFIContactList *)sharedList;
+
 + (void)setWithDictionary:(NSDictionary *)dictionary;
 
 + (NSArray *)contacts;
+
++ (void)reload;
+
+@end
+
+@protocol AFIContactListDelegate <NSObject>
+
+- (void)contactListDidchange;
 
 @end

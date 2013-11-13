@@ -185,12 +185,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa8-HU-MMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944" y="-204"/>
+            <point key="canvasLocation" x="534" y="-204"/>
         </scene>
-        <!--PokeVC-->
+        <!--LoginVC-->
         <scene sceneID="sHL-cK-WhJ">
             <objects>
-                <viewController id="1jB-y9-Gmb" customClass="AFIPokeVC" sceneMemberID="viewController">
+                <viewController id="1jB-y9-Gmb" customClass="AFILoginVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ql4-Cj-EdK"/>
                         <viewControllerLayoutGuide type="bottom" id="il0-cv-BnV"/>
@@ -278,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="-516" y="461"/>
         </scene>
-        <!--PokeVC-->
+        <!--LoginVC-->
         <scene sceneID="uH3-e7-m2u">
             <objects>
-                <viewController id="cIq-M9-WaC" customClass="AFIPokeVC" sceneMemberID="viewController">
+                <viewController id="cIq-M9-WaC" customClass="AFILoginVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J1C-qz-9qV"/>
                         <viewControllerLayoutGuide type="bottom" id="mZf-wa-f2M"/>

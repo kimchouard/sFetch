@@ -13,7 +13,7 @@
 		5A05292D183272BA0079F0DA /* UIImage+BlurredFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052926183272BA0079F0DA /* UIImage+BlurredFrame.m */; };
 		5A05292E183272BA0079F0DA /* UIImage+BlurredFrame.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5A052927183272BA0079F0DA /* UIImage+BlurredFrame.podspec */; };
 		5A05292F183272BA0079F0DA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052929183272BA0079F0DA /* UIImage+ImageEffects.m */; };
-		5A052932183274EC0079F0DA /* AFIPokeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052931183274EC0079F0DA /* AFIPokeVC.m */; };
+		5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052931183274EC0079F0DA /* AFILoginVC.m */; };
 		5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052934183278300079F0DA /* AFIWebViewVC.m */; };
 		5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A05293F18327CC50079F0DA /* AFIProfileSumaryCell.m */; };
 		5A05294218327CC50079F0DA /* AFIProfileSumaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A05294018327CC50079F0DA /* AFIProfileSumaryCell.xib */; };
@@ -61,8 +61,8 @@
 		5A052927183272BA0079F0DA /* UIImage+BlurredFrame.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIImage+BlurredFrame.podspec"; sourceTree = "<group>"; };
 		5A052928183272BA0079F0DA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		5A052929183272BA0079F0DA /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		5A052930183274EC0079F0DA /* AFIPokeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIPokeVC.h; path = Controller/AFIPokeVC.h; sourceTree = "<group>"; };
-		5A052931183274EC0079F0DA /* AFIPokeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIPokeVC.m; path = Controller/AFIPokeVC.m; sourceTree = "<group>"; };
+		5A052930183274EC0079F0DA /* AFILoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFILoginVC.h; path = Controller/AFILoginVC.h; sourceTree = "<group>"; };
+		5A052931183274EC0079F0DA /* AFILoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFILoginVC.m; path = Controller/AFILoginVC.m; sourceTree = "<group>"; };
 		5A052933183278300079F0DA /* AFIWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIWebViewVC.h; path = Controller/AFIWebViewVC.h; sourceTree = "<group>"; };
 		5A052934183278300079F0DA /* AFIWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIWebViewVC.m; path = Controller/AFIWebViewVC.m; sourceTree = "<group>"; };
 		5A05293E18327CC50079F0DA /* AFIProfileSumaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFIProfileSumaryCell.h; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 				5A109883183102C8005D6DDA /* AFIContactSearchVC.m */,
 				5A052933183278300079F0DA /* AFIWebViewVC.h */,
 				5A052934183278300079F0DA /* AFIWebViewVC.m */,
-				5A052930183274EC0079F0DA /* AFIPokeVC.h */,
-				5A052931183274EC0079F0DA /* AFIPokeVC.m */,
+				5A052930183274EC0079F0DA /* AFILoginVC.h */,
+				5A052931183274EC0079F0DA /* AFILoginVC.m */,
 				5A1098AB183141D3005D6DDA /* AFIContactVC.h */,
 				5A1098AC183141D3005D6DDA /* AFIContactVC.m */,
 				5A1098A818313DE7005D6DDA /* AFISearchNavigationController.h */,
@@ -404,7 +404,7 @@
 				5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */,
 				5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */,
 				5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */,
-				5A052932183274EC0079F0DA /* AFIPokeVC.m in Sources */,
+				5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
 				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,
 			);

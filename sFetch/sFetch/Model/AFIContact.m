@@ -11,6 +11,7 @@
 #define ENCODE_KEY_JOB @"jobEncodeKey"
 #define ENCODE_KEY_NAME @"nameEncodeKey"
 #define ENCODE_KEY_IMG_URL @"imageURLEncodeKey"
+#define ENCODE_KEY_IDENTIFIER @"identifierEncodeKey"
 
 static int contactNumber;
 
@@ -37,6 +38,19 @@ static int contactNumber;
         _job = [info objectForKey:SERVER_KEY_JOB];
         _name = [info objectForKey:SERVER_KEY_NAME];
         _imageURL = [info objectForKey:SERVER_KEY_IMG_URL];
+        _identifier = [info objectForKey:SERVER_KEY_IDENTIFIER];
+    }
+    return self;
+}
+
+- (id)initWithInfo:(NSDictionary *)info andIdentifier:(NSString *)identifier
+{
+    self = [self init];
+    if (self) {
+        _job = [info objectForKey:SERVER_KEY_JOB];
+        _name = [info objectForKey:SERVER_KEY_NAME];
+        _imageURL = [info objectForKey:SERVER_KEY_IMG_URL];
+        _identifier = identifier;
     }
     return self;
 }
@@ -51,20 +65,10 @@ static int contactNumber;
     return [[AFIContact alloc] initWithInfo:info];
 }
 
-//+ (NSArray *)contactArrayWithDictionary:(NSDictionary *)dictionary
-//{
-//    NSArray *documentArray = [dictionary objectForKey:@"datas"];
-//    
-//    NSMutableArray *tempData = [[NSMutableArray alloc] initWithCapacity:[documentArray count]];
-//    
-//    for (NSDictionary *contactDocument in documentArray) {
-//        NSDictionary *contactInfo = [contactDocument objectForKey:@"datas"];
-//        AFIContact *contact = [AFIContact contactWithInfo:contactInfo];
-//        [tempData addObject:contact];
-//    }
-//    
-//    return tempData;
-//}
++ (AFIContact *)contactWithInfo:(NSDictionary *)info andIdentifier:(NSString *)identifier
+{   
+    return [[AFIContact alloc] initWithInfo:info andIdentifier:identifier];
+}
 
 #pragma mark NSCoding
 
@@ -75,6 +79,7 @@ static int contactNumber;
         _job = [aDecoder decodeObjectForKey:ENCODE_KEY_JOB];
         _name = [aDecoder decodeObjectForKey:ENCODE_KEY_NAME];
         _imageURL = [aDecoder decodeObjectForKey:ENCODE_KEY_IMG_URL];
+        _identifier = [aDecoder decodeObjectForKey:ENCODE_KEY_IDENTIFIER];
     }
     return self;
 }
@@ -84,6 +89,7 @@ static int contactNumber;
     [aCoder encodeObject:self.job forKey:ENCODE_KEY_JOB];
     [aCoder encodeObject:self.name forKey:ENCODE_KEY_NAME];
     [aCoder encodeObject:self.imageURL forKey:ENCODE_KEY_IMG_URL];
+    [aCoder encodeObject:self.identifier forKey:ENCODE_KEY_IDENTIFIER];
 }
 
 @end

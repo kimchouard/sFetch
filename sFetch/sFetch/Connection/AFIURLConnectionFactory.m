@@ -17,4 +17,9 @@
     return [AFIURLConnection connectionWithRequest:request delegate:delegate];
 }
 
++ (AFIURLConnection *)connectionGetTimeLineForUserIdentifier:(NSString *)identifier
+{
+    return nil;
+}
+
 @end

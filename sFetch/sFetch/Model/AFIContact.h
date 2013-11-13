@@ -11,9 +11,11 @@
 #define SERVER_KEY_NAME @"name"
 #define SERVER_KEY_JOB @"job"
 #define SERVER_KEY_IMG_URL @"image"
+#define SERVER_KEY_IDENTIFIER @"id"
 
 @interface AFIContact : NSObject
 
+@property (strong, nonatomic) NSString *identifier;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *job;
 @property (strong, nonatomic) NSString *imageURL;
@@ -21,11 +23,11 @@
 
 - (id)initLazy;
 - (id)initWithInfo:(NSDictionary *)info;
+- (id)initWithInfo:(NSDictionary *)info andIdentifier:(NSString *)identifier;
 
 + (AFIContact *)defaultContact;
 
 + (AFIContact *)contactWithInfo:(NSDictionary *)info;
-
-//+ (NSArray *)contactArrayWithDictionary:(NSDictionary *)dictionary;
++ (AFIContact *)contactWithInfo:(NSDictionary *)info andIdentifier:(NSString *)identifier;
 
 @end

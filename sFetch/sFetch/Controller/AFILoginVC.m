@@ -6,12 +6,13 @@
 //  Copyright (c) 2013 AnyFetch - INSA. All rights reserved.
 //
 
-#import "AFIPokeVC.h"
+#import "AFILoginVC.h"
 #import "AFILoginConnection.h"
+#import "AFIContactList.h"
 
 #define SEGUE_IDENTIFIER @"loginSegue"
 
-@interface AFIPokeVC () <AFIURLConnectionDelegate, UITextFieldDelegate>
+@interface AFILoginVC () <AFIURLConnectionDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *urlLabel;
 @property (weak, nonatomic) IBOutlet UITextField *mailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
@@ -21,7 +22,7 @@
 
 @end
 
-@implementation AFIPokeVC
+@implementation AFILoginVC
 
 - (void)viewDidLoad
 {
@@ -70,6 +71,12 @@
     [self.loginConnection startConnection];
 }
 
+- (void)performLogin
+{
+    [AFIContactList reload];
+    [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
+}
+
 #pragma mark AFIURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -112,7 +119,7 @@
     }
     
     if (success) {
-        [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
+        [self performLogin];
     }
 }
 

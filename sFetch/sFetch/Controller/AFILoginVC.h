@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AFIPokeVC : UIViewController
+@interface AFILoginVC : UIViewController
 
 @end

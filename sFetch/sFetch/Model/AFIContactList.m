@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) NSArray *list;
 
+@property (strong, nonatomic) AFIURLConnection *connection;
+
 @end
 
 @implementation AFIContactList
@@ -26,13 +28,19 @@
     NSMutableArray *tempData = [[NSMutableArray alloc] initWithCapacity:[documentArray count]];
     
     for (NSDictionary *contactDocument in documentArray) {
-        NSDictionary *contactInfo = [contactDocument objectForKey:@"datas"];
-        AFIContact *contact = [AFIContact contactWithInfo:contactInfo];
+        NSMutableDictionary *contactInfo = [contactDocument objectForKey:@"datas"];
+        NSString *identifer = [contactDocument objectForKey:@"id"];
+        AFIContact *contact = [AFIContact contactWithInfo:contactInfo andIdentifier:identifer];
         [tempData addObject:contact];
     }
     
     self.list = tempData;
+    
     [self archive];
+    
+    if ([self.delegate respondsToSelector:@selector(contactListDidchange)]) {
+        [self.delegate contactListDidchange];
+    }
 }
 
 + (void)setWithDictionary:(NSDictionary *)dictionary
@@ -87,6 +95,24 @@
 
 #pragma mark AFIURLConnectionDelegate
 
+- (AFIURLConnection *)connection
+{
+    if (!_connection) {
+        _connection = [AFIURLConnectionFactory connectionGetContactWithDelegate:self];
+    }
+    return _connection;
+}
+
+- (void)reload
+{
+    [self.connection startConnection];
+}
+
++ (void)reload
+{
+    [[AFIContactList sharedList] reload];
+}
+
 - (void)connectionDidStart:(AFIURLConnection *)connection
 {
     self.isLoading = YES;
@@ -94,7 +120,23 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data
+                          
+                          options:kNilOptions
+                          error:&error];
     
+    [self setWithDictionary:json];
+    self.isLoading = NO;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
+    
+    self.isLoading = NO;
+    NSLog(@"%@", error);
 }
 
 @end
