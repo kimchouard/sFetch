@@ -33,7 +33,7 @@
     self.homeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.homeButton.frame = CGRectMake(0, 20, 44, 44);
     [self.homeButton setTitle:@"H" forState:UIControlStateNormal];
-    [self.homeButton addTarget:self action:@selector(didTapeHomeButton) forControlEvents:UIControlEventAllTouchEvents];
+    [self.homeButton addTarget:self action:@selector(didTapHomeButton) forControlEvents:UIControlEventAllTouchEvents];
     
     [view addSubview:self.homeButton];
     
@@ -115,7 +115,7 @@
 
 #pragma mark UIButton Delegate
 
-- (void)didTapeHomeButton
+- (void)didTapHomeButton
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
