@@ -26,6 +26,9 @@
                                    delegate:(id)delegate login:(NSString *)login
                                 andPassword:(NSString *)password;
 
+- (id)initWithRequest:(NSURLRequest *)request delegate:(id)delegate;
++ (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request delegate:(id)delegate;
+
 - (void)start;
 
 @end

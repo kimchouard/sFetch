@@ -37,6 +37,7 @@
 		5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098AC183141D3005D6DDA /* AFIContactVC.m */; };
 		5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B2931833689A002F4957 /* AFIURLConnection.m */; };
 		5AC7B298183379B0002F4957 /* AFIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B297183379B0002F4957 /* AFIUser.m */; };
+		5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		5AC7B2931833689A002F4957 /* AFIURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIURLConnection.m; path = Connection/AFIURLConnection.m; sourceTree = "<group>"; };
 		5AC7B296183379B0002F4957 /* AFIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIUser.h; path = Model/AFIUser.h; sourceTree = "<group>"; };
 		5AC7B297183379B0002F4957 /* AFIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIUser.m; path = Model/AFIUser.m; sourceTree = "<group>"; };
+		5AC7B29918337FCC002F4957 /* AFILoginConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFILoginConnection.h; path = Connection/AFILoginConnection.h; sourceTree = "<group>"; };
+		5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFILoginConnection.m; path = Connection/AFILoginConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +271,8 @@
 			children = (
 				5AC7B2921833689A002F4957 /* AFIURLConnection.h */,
 				5AC7B2931833689A002F4957 /* AFIURLConnection.m */,
+				5AC7B29918337FCC002F4957 /* AFILoginConnection.h */,
+				5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
 				5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */,
 				5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */,
+				5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */,
 				5A052932183274EC0079F0DA /* AFIPokeVC.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
 				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,

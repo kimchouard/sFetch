@@ -7,6 +7,7 @@
 //
 
 #import "AFIURLConnection.h"
+#import "AFIUser.h"
 
 @interface AFIURLConnection() <NSURLConnectionDataDelegate>
 
@@ -31,7 +32,8 @@
 }
 
 + (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request
-                                   delegate:(id)delegate login:(NSString *)login
+                                   delegate:(id)delegate
+                                      login:(NSString *)login
                                 andPassword:(NSString *)password
 {
     AFIURLConnection *connection = [[AFIURLConnection alloc] initWithRequest:request
@@ -39,6 +41,22 @@
                                                                        login:login
                                                                  andPassword:password];
     return connection;
+}
+
+- (id)initWithRequest:(NSMutableURLRequest *)request delegate:(id)delegate
+{
+    AFIUser *user = [AFIUser sharedUser];
+    
+    self = [self initWithRequest:request delegate:delegate login:user.login andPassword:user.password];
+    if (self) {
+        
+    }
+    return self;
+}
+
++ (AFIURLConnection *)connectionWithRequest:(NSMutableURLRequest *)request delegate:(id)delegate
+{
+    return [[AFIURLConnection alloc] initWithRequest:request delegate:delegate];
 }
 
 - (void)start
