@@ -74,7 +74,8 @@
 - (void)performLogin
 {
     [AFIContactList reload];
-    [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
+//    [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark AFIURLConnectionDelegate

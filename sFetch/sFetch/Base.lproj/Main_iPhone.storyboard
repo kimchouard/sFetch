@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cIq-M9-WaC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1jB-y9-Gmb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="534" y="-204"/>
         </scene>
-        <!--LoginVC-->
+        <!--HomeVC-->
         <scene sceneID="sHL-cK-WhJ">
             <objects>
-                <viewController id="1jB-y9-Gmb" customClass="AFILoginVC" sceneMemberID="viewController">
+                <viewController id="1jB-y9-Gmb" customClass="AFIHomeVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ql4-Cj-EdK"/>
                         <viewControllerLayoutGuide type="bottom" id="il0-cv-BnV"/>
@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URg-Xs-oek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-802" y="-204"/>
+            <point key="canvasLocation" x="-858" y="-204"/>
         </scene>
         <!--Web ViewVC-->
         <scene sceneID="Jgb-BV-Pe7">
@@ -249,7 +249,7 @@
         <!--LoginVC-->
         <scene sceneID="uH3-e7-m2u">
             <objects>
-                <viewController id="cIq-M9-WaC" customClass="AFILoginVC" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AFILoginVC" storyboardIdentifier="AFILoginVC" id="cIq-M9-WaC" customClass="AFILoginVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J1C-qz-9qV"/>
                         <viewControllerLayoutGuide type="bottom" id="mZf-wa-f2M"/>
@@ -313,9 +313,6 @@
                                 <state key="normal" title="OnSuccessLogin">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="1jB-y9-Gmb" kind="modal" identifier="loginSegue" modalTransitionStyle="flipHorizontal" id="sS9-gn-k9t"/>
-                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HA7-uB-eE8">
                                 <rect key="frame" x="102" y="210" width="37" height="37"/>
@@ -334,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSk-Rc-CKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1225" y="-204"/>
+            <point key="canvasLocation" x="-858" y="478"/>
         </scene>
         <!--Contact SearchVC-->
         <scene sceneID="ufC-wZ-h7g">

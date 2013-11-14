@@ -13,6 +13,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    //UIViewController* loginViewController = [mainstoryboard instantiateViewControllerWithIdentifier:@"AFILoginVC"];
+    //UIViewController *rootViewController = [self topMostController];
+    //[rootViewController presentViewController:loginViewController animated:YES completion:NULL];
+
+    
     // Override point for customization after application launch.
     return YES;
 }

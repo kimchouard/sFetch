@@ -14,6 +14,7 @@
 		3217413C18350C5800460977 /* AFIEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413B18350C5800460977 /* AFIEvent.m */; };
 		3217413F18350CB800460977 /* AFITask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413E18350CB800460977 /* AFITask.m */; };
 		3217414218350CC600460977 /* AFINote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217414118350CC600460977 /* AFINote.m */; };
+		326F618518354AB300F0F546 /* AFIHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 326F618418354AB300F0F546 /* AFIHomeVC.m */; };
 		5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052931183274EC0079F0DA /* AFILoginVC.m */; };
 		5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052934183278300079F0DA /* AFIWebViewVC.m */; };
 		5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A05293F18327CC50079F0DA /* AFIProfileSumaryCell.m */; };
@@ -85,6 +86,8 @@
 		3217413E18350CB800460977 /* AFITask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFITask.m; path = Model/AFITask.m; sourceTree = "<group>"; };
 		3217414018350CC600460977 /* AFINote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFINote.h; sourceTree = "<group>"; };
 		3217414118350CC600460977 /* AFINote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFINote.m; sourceTree = "<group>"; };
+		326F618318354AB300F0F546 /* AFIHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFIHomeVC.h; sourceTree = "<group>"; };
+		326F618418354AB300F0F546 /* AFIHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFIHomeVC.m; sourceTree = "<group>"; };
 		5A052930183274EC0079F0DA /* AFILoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFILoginVC.h; path = Controller/AFILoginVC.h; sourceTree = "<group>"; };
 		5A052931183274EC0079F0DA /* AFILoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFILoginVC.m; path = Controller/AFILoginVC.m; sourceTree = "<group>"; };
 		5A052933183278300079F0DA /* AFIWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIWebViewVC.h; path = Controller/AFIWebViewVC.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 		5A05293618327AA60079F0DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				326F618318354AB300F0F546 /* AFIHomeVC.h */,
+				326F618418354AB300F0F546 /* AFIHomeVC.m */,
 				5A109882183102C8005D6DDA /* AFIContactSearchVC.h */,
 				5A109883183102C8005D6DDA /* AFIContactSearchVC.m */,
 				5A276B4B18354696003B67D6 /* AFICallReportVC.h */,
@@ -518,6 +523,7 @@
 			files = (
 				5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */,
 				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
+				326F618518354AB300F0F546 /* AFIHomeVC.m in Sources */,
 				3217412D1835060A00460977 /* AFISnippet.m in Sources */,
 				5AC7B2A11833BC88002F4957 /* AFIContactList.m in Sources */,
 				5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */,
