@@ -17,4 +17,6 @@
 
 + (AFIURLConnection *)connectionGetTimeLineForUserName:(NSString *)name andDelegate:(id<AFIURLConnectionDelegate>)delegate;
 
++ (AFIURLConnection *)connectionGetHtmlVersionOfSnippet:(NSString *)idSnippet andDelegate:(id<AFIURLConnectionDelegate>)delegate;
+
 @end

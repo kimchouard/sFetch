@@ -266,7 +266,11 @@
 {
     AFIWebViewVC *webViewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIWebViewVC"];
     
-    webViewVC.url = [@"http://api.anyfetch.com" stringByAppendingString: ((AFISnippet *) [self.data objectAtIndex:indexPath.row]).url];
+    NSString *url = [@"http://api.anyfetch.com" stringByAppendingString: ((AFISnippet *) [self.data objectAtIndex:indexPath.row]).url];
+    
+    
+//    AFIURLConnection *detailsRequestConnection = [AFIURLConnectionFactory connectionGetHtmlVersionOfSnippet:((AFISnippet *) [self.data objectAtIndex:indexPath.row]).url andDelegate:self];
+    webViewVC.url = url;
     
     [self.navigationController pushViewController:webViewVC animated:YES];
 }
