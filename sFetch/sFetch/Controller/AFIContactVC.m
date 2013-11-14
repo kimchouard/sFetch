@@ -265,7 +265,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AFIWebViewVC *webViewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIWebViewVC"];
-    webViewVC.url = [self.data objectAtIndex:indexPath.row];
+    
+    webViewVC.url = [@"http://api.anyfetch.com" stringByAppendingString: ((AFISnippet *) [self.data objectAtIndex:indexPath.row]).url];
+    
     [self.navigationController pushViewController:webViewVC animated:YES];
 }
 
