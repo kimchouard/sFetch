@@ -20,6 +20,7 @@
 + (AFIURLConnection *)connectionGetTimeLineForUserName:(NSString *)name andDelegate:(id<AFIURLConnectionDelegate>)delegate
 {
     NSString *URL = [NSString stringWithFormat:@"http://api.anyfetch.com/documents?search=%@", name];
+    URL = @"http://bde.insa-lyon.fr/raid/wp-content/uploads/2013/11/bite.txt";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     
     return [AFIURLConnection connectionWithRequest:request delegate:delegate];

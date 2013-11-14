@@ -12,13 +12,21 @@
 #import "AFIProfileTwitterCell.h"
 #import "AFIProfileLinkedInCell.h"
 #import "AFIProfileButton.h"
+#import "AFIURLConnectionFactory.h"
 
 
-@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
+@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *data;
+
+@property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *profileView;
+
+@property (strong, nonatomic) AFIURLConnection *timeLineRequestConnection;
 
 @end
 
@@ -30,6 +38,10 @@
     [AFIProfileSumaryCell registerToCollectionview:self.collectionView];
     [AFIProfileTwitterCell registerToCollectionview:self.collectionView];
     [AFIProfileLinkedInCell registerToCollectionview:self.collectionView];
+    
+    self.refreshControl= [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(requestTimeLine) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     
     [self drawButtons];
 }
@@ -138,6 +150,77 @@
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:sender.currentPage inSection:0];
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+}
+
+
+#pragma mark AFIURLConnectionDelegate
+
+- (AFIURLConnection *)timeLineRequestConnection
+{
+    if (!_timeLineRequestConnection) {
+        _timeLineRequestConnection = [AFIURLConnectionFactory connectionGetTimeLineForUserName:self.contact.name andDelegate:self];
+    }
+    return _timeLineRequestConnection;
+}
+
+- (void)requestTimeLine
+{
+    [self.timeLineRequestConnection startConnection];
+}
+
+- (void)reloadData
+{
+    [self.tableView reloadData];
+}
+
+- (void)connectionDidStart:(AFIURLConnection *)connection
+{
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:data
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    NSLog(@"%@", json);
+    
+    [self.refreshControl endRefreshing];
+    
+//    [AFIContactList setWithDictionary:json];
+    [self reloadData];
+    self.timeLineRequestConnection = nil;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self.refreshControl endRefreshing];
+    
+    [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
+    
+    NSLog(@"%@", error);
+    self.timeLineRequestConnection = nil;
+}
+
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.data count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[UITableViewCell alloc] init];
 }
 
 
