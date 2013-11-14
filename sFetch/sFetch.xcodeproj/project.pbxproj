@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3217412D1835060A00460977 /* AFISnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217412C1835060A00460977 /* AFISnippet.m */; };
+		32174130183508C100460977 /* AFITimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217412F183508C100460977 /* AFITimeline.m */; };
+		3217413318350A4C00460977 /* AFIMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413218350A4C00460977 /* AFIMail.m */; };
+		3217413618350B6200460977 /* AFIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413518350B6200460977 /* AFIDocument.m */; };
+		3217413918350C3400460977 /* AFICallReport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413818350C3400460977 /* AFICallReport.m */; };
+		3217413C18350C5800460977 /* AFIEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413B18350C5800460977 /* AFIEvent.m */; };
+		3217413F18350CB800460977 /* AFITask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217413E18350CB800460977 /* AFITask.m */; };
+		3217414218350CC600460977 /* AFINote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3217414118350CC600460977 /* AFINote.m */; };
 		5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052931183274EC0079F0DA /* AFILoginVC.m */; };
 		5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A052934183278300079F0DA /* AFIWebViewVC.m */; };
 		5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A05293F18327CC50079F0DA /* AFIProfileSumaryCell.m */; };
@@ -57,6 +65,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3217412B1835060A00460977 /* AFISnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFISnippet.h; path = Model/AFISnippet.h; sourceTree = "<group>"; };
+		3217412C1835060A00460977 /* AFISnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFISnippet.m; path = Model/AFISnippet.m; sourceTree = "<group>"; };
+		3217412E183508C100460977 /* AFITimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFITimeline.h; path = Model/AFITimeline.h; sourceTree = "<group>"; };
+		3217412F183508C100460977 /* AFITimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFITimeline.m; path = Model/AFITimeline.m; sourceTree = "<group>"; };
+		3217413118350A4C00460977 /* AFIMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIMail.h; path = Model/AFIMail.h; sourceTree = "<group>"; };
+		3217413218350A4C00460977 /* AFIMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIMail.m; path = Model/AFIMail.m; sourceTree = "<group>"; };
+		3217413418350B6200460977 /* AFIDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIDocument.h; path = Model/AFIDocument.h; sourceTree = "<group>"; };
+		3217413518350B6200460977 /* AFIDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIDocument.m; path = Model/AFIDocument.m; sourceTree = "<group>"; };
+		3217413718350C3400460977 /* AFICallReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFICallReport.h; path = Model/AFICallReport.h; sourceTree = "<group>"; };
+		3217413818350C3400460977 /* AFICallReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFICallReport.m; path = Model/AFICallReport.m; sourceTree = "<group>"; };
+		3217413A18350C5800460977 /* AFIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIEvent.h; path = Model/AFIEvent.h; sourceTree = "<group>"; };
+		3217413B18350C5800460977 /* AFIEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIEvent.m; path = Model/AFIEvent.m; sourceTree = "<group>"; };
+		3217413D18350CB800460977 /* AFITask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFITask.h; path = Model/AFITask.h; sourceTree = "<group>"; };
+		3217413E18350CB800460977 /* AFITask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFITask.m; path = Model/AFITask.m; sourceTree = "<group>"; };
+		3217414018350CC600460977 /* AFINote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFINote.h; sourceTree = "<group>"; };
+		3217414118350CC600460977 /* AFINote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFINote.m; sourceTree = "<group>"; };
 		5A052930183274EC0079F0DA /* AFILoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFILoginVC.h; path = Controller/AFILoginVC.h; sourceTree = "<group>"; };
 		5A052931183274EC0079F0DA /* AFILoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFILoginVC.m; path = Controller/AFILoginVC.m; sourceTree = "<group>"; };
 		5A052933183278300079F0DA /* AFIWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIWebViewVC.h; path = Controller/AFIWebViewVC.h; sourceTree = "<group>"; };
@@ -141,6 +165,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3217414318350CD700460977 /* Snippets Types */ = {
+			isa = PBXGroup;
+			children = (
+				3217413118350A4C00460977 /* AFIMail.h */,
+				3217413218350A4C00460977 /* AFIMail.m */,
+				3217413418350B6200460977 /* AFIDocument.h */,
+				3217413518350B6200460977 /* AFIDocument.m */,
+				3217413718350C3400460977 /* AFICallReport.h */,
+				3217413818350C3400460977 /* AFICallReport.m */,
+				3217413A18350C5800460977 /* AFIEvent.h */,
+				3217413B18350C5800460977 /* AFIEvent.m */,
+				3217413D18350CB800460977 /* AFITask.h */,
+				3217413E18350CB800460977 /* AFITask.m */,
+				3217414018350CC600460977 /* AFINote.h */,
+				3217414118350CC600460977 /* AFINote.m */,
+			);
+			name = "Snippets Types";
+			sourceTree = "<group>";
+		};
 		5A05293618327AA60079F0DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +210,11 @@
 				5AC7B2A01833BC88002F4957 /* AFIContactList.m */,
 				5AC7B296183379B0002F4957 /* AFIUser.h */,
 				5AC7B297183379B0002F4957 /* AFIUser.m */,
+				3217412B1835060A00460977 /* AFISnippet.h */,
+				3217412C1835060A00460977 /* AFISnippet.m */,
+				3217414318350CD700460977 /* Snippets Types */,
+				3217412E183508C100460977 /* AFITimeline.h */,
+				3217412F183508C100460977 /* AFITimeline.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -434,21 +482,35 @@
 			files = (
 				5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */,
 				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
+				3217412D1835060A00460977 /* AFISnippet.m in Sources */,
 				5AC7B2A11833BC88002F4957 /* AFIContactList.m in Sources */,
 				5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */,
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
+<<<<<<< HEAD
 				5A5E3A2318350E6900BAD3F1 /* AFIProfileTwitterCell.m in Sources */,
+=======
+				3217413C18350C5800460977 /* AFIEvent.m in Sources */,
+				3217413918350C3400460977 /* AFICallReport.m in Sources */,
+>>>>>>> 7f500a50f4ca53f7b0ac04ce3b3577a955b29f90
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
 				5AC7B29E18339A65002F4957 /* AFIURLConnectionFactory.m in Sources */,
 				5A5E3A1F1835067E00BAD3F1 /* AFIProfileButton.m in Sources */,
 				5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */,
 				5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */,
 				5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */,
+				3217414218350CC600460977 /* AFINote.m in Sources */,
 				5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */,
+<<<<<<< HEAD
 				5A5E3A301835170400BAD3F1 /* AFIProfileLinkedInCell.m in Sources */,
+=======
+				3217413318350A4C00460977 /* AFIMail.m in Sources */,
+>>>>>>> 7f500a50f4ca53f7b0ac04ce3b3577a955b29f90
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
 				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,
+				32174130183508C100460977 /* AFITimeline.m in Sources */,
+				3217413F18350CB800460977 /* AFITask.m in Sources */,
+				3217413618350B6200460977 /* AFIDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
