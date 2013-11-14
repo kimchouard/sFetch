@@ -127,6 +127,8 @@
 {
     [self.activityIndicator stopAnimating];
     [[[UIAlertView alloc] initWithTitle:@"Error" message:[error description] delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles:nil] show];
+    
+    [self connection:Nil didReceiveData:[[NSData alloc] init]];
 }
 
 - (void)accessRefusedWithJson:(NSDictionary *)json

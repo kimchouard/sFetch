@@ -11,6 +11,7 @@
 #import "AFISearchNavigationController.h"
 #import "AFIContactVC.h"
 #import "AFIURLConnectionFactory.h"
+#import "AFIProfileButton.h"
 
 #define CELL_IDENTIFIER @"contactCell"
 #define SEGUE_IDENTIFIER @"displayContactSegue"

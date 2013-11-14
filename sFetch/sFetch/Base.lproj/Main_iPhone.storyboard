@@ -48,6 +48,7 @@
                                         <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O6l-AG-XqZ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="0.25098039220000001" green="0.58823529409999997" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="320" id="f6N-hz-D1e"/>
                                                 <constraint firstAttribute="height" constant="120" id="gkz-h5-0cO"/>
@@ -75,7 +76,7 @@
                                             </connections>
                                         </collectionView>
                                         <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="YnP-dk-J5O">
-                                            <rect key="frame" x="140" y="60" width="39" height="37"/>
+                                            <rect key="frame" x="140" y="69" width="39" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <connections>
                                                 <action selector="pageControl:" destination="JVv-4t-4U9" eventType="valueChanged" id="2xd-so-H5e"/>
@@ -181,6 +182,7 @@
                     <connections>
                         <outlet property="collectionView" destination="O6l-AG-XqZ" id="FtW-cg-bC5"/>
                         <outlet property="pageControl" destination="YnP-dk-J5O" id="bTr-Qc-CoK"/>
+                        <outlet property="profileView" destination="wRw-AQ-4Vy" id="TWa-1W-e9M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa8-HU-MMV" userLabel="First Responder" sceneMemberID="firstResponder"/>

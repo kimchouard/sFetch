@@ -9,11 +9,16 @@
 #import "AFIContactVC.h"
 #import "AFISearchNavigationController.h"
 #import "AFIProfileSumaryCell.h"
+#import "AFIProfileTwitterCell.h"
+#import "AFIProfileLinkedInCell.h"
+#import "AFIProfileButton.h"
 
-@interface AFIContactVC () <UICollectionViewDataSource, UIScrollViewDelegate>
+
+@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *profileView;
 
 @end
 
@@ -23,6 +28,10 @@
 {
     [super viewDidLoad];
     [AFIProfileSumaryCell registerToCollectionview:self.collectionView];
+    [AFIProfileTwitterCell registerToCollectionview:self.collectionView];
+    [AFIProfileLinkedInCell registerToCollectionview:self.collectionView];
+    
+    [self drawButtons];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -33,6 +42,33 @@
     
     [navVC setDisplayedSearchString:self.contact.name];
     navVC.lastContactViewed = self.contact;    
+}
+
+- (void)drawButtons
+{
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"AFIProfileButton"
+                                                         owner:self
+                                                       options:nil];
+    //I'm assuming here that your nib's top level contains only the view
+    //you want, so it's the only item in the array.
+    AFIProfileButton *mailButton = [nibContents objectAtIndex:0];
+    mailButton.titleLabel.text = @"Mail";
+    [mailButton setDesign];
+    
+    
+    nibContents = [[NSBundle mainBundle] loadNibNamed:@"AFIProfileButton"
+                                                         owner:self
+                                                       options:nil];
+    //I'm assuming here that your nib's top level contains only the view
+    //you want, so it's the only item in the array.
+    AFIProfileButton *callButton = [nibContents objectAtIndex:0];
+    callButton.titleLabel.text = @"Call";
+    [callButton setDesign];
+    
+    mailButton.frame = CGRectMake(0,95,160,25);
+    [self.profileView addSubview:mailButton];
+    callButton.frame = CGRectMake(160,95,160,25);
+    [self.profileView addSubview:callButton];
 }
 
 #pragma mark UICollectionViewDataSource
@@ -61,16 +97,18 @@
         }
         case 1:
         {
-            NSString *identifier = @"tempCell";
-            UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor greenColor];
+            AFIProfileTwitterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[AFIProfileTwitterCell reusableIdentifier] forIndexPath:indexPath];
+            cell.nameLabel.text = self.contact.name;
+            cell.tweetLabel.text = @"Mouahahah de la balle !";
             return cell;
         }
         case 2:
         {
-            NSString *identifier = @"tempCell";
-            UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-            cell.backgroundColor = [UIColor blueColor];
+            AFIProfileLinkedInCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[AFIProfileLinkedInCell reusableIdentifier] forIndexPath:indexPath];
+            
+            cell.nameLabel.text = self.contact.name;
+            cell.linkedInText.text = @"URSS CEO";
+            
             return cell;
         }
             default:
@@ -85,6 +123,13 @@
 {
     NSIndexPath *visiblePath = [[self.collectionView indexPathsForVisibleItems] lastObject];
     self.pageControl.currentPage = visiblePath.row;
+
+    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:visiblePath];
+    self.collectionView.backgroundColor = cell.backgroundColor;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
 }
 
 #pragma mark UIPageControlDelegate
