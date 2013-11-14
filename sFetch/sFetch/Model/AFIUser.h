@@ -21,5 +21,7 @@
 
 
 + (AFIUser *)sharedUser;
++ (void)setCalling:(BOOL)isCalling;
++ (BOOL)isCalling;
 
 @end

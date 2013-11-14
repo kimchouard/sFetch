@@ -7,6 +7,7 @@
 //
 
 #import "AFIAppDelegate.h"
+#import "AFIUser.h"
 
 @implementation AFIAppDelegate
 
@@ -36,11 +37,27 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    if ([AFIUser isCalling]) {
+        UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        UIViewController* viewController = [mainstoryboard instantiateViewControllerWithIdentifier:@"CallBack"];
+        UIViewController *topViewcontroller = [self topMostController];
+        [topViewcontroller presentViewController:viewController animated:YES completion:NULL];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (UIViewController*) topMostController {
+    UIViewController *topController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    return topController;
 }
 
 @end

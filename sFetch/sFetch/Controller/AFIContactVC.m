@@ -16,6 +16,7 @@
 #import "AFIURLConnectionFactory.h"
 #import "AFITimeLine.h"
 #import "MBProgressHUD.h"
+#import "AFIUser.h"
 
 
 @interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -97,6 +98,7 @@
     NSString *phoneURLString = [NSString stringWithFormat:@"tel:%@", phoneNumber];
     NSURL *phoneURL = [NSURL URLWithString:phoneURLString];
     [[UIApplication sharedApplication] openURL:phoneURL];
+    [AFIUser setCalling:YES];
 }
 
 - (void)doMail

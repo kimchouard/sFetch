@@ -18,6 +18,8 @@
 @property (strong, nonatomic, readwrite) NSString *login;
 @property (strong, nonatomic, readwrite) NSString *password;
 
+@property (nonatomic) BOOL isCalling;
+
 @end
 
 @implementation AFIUser
@@ -88,12 +90,23 @@
         
         if (!SharedUser) {
             SharedUser = [AFIUser unArchive];
+            SharedUser.isCalling = NO;
         } else {
             NSLog(@"/!\\ Did not unarchive user.");
         }
         
     });
     return SharedUser;
+}
+
++ (void)setCalling:(BOOL)isCalling
+{
+    [AFIUser sharedUser].isCalling = isCalling;
+}
+
++ (BOOL)isCalling
+{
+    return [AFIUser sharedUser].isCalling;
 }
 
 @end
