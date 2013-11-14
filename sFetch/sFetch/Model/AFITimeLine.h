@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFISnippet.h"
 
 @interface AFITimeLine : NSObject
+
+- (id)initWithJson:(NSDictionary *)json;
+
++ (AFITimeLine *)timeLineWithJson:(NSDictionary *)json;
+
+- (NSArray *)getSnippets;
 
 @end

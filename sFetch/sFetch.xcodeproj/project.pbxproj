@@ -37,6 +37,10 @@
 		5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098A918313DE7005D6DDA /* AFISearchNavigationController.m */; };
 		5A1098AD183141D3005D6DDA /* AFIContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1098AC183141D3005D6DDA /* AFIContactVC.m */; };
 		5A27697F18352548003B67D6 /* AFITimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A27697E18352548003B67D6 /* AFITimeLine.m */; };
+		5A27698218353020003B67D6 /* AFISnippetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A27698118353020003B67D6 /* AFISnippetCell.m */; };
+		5A2769841835302E003B67D6 /* AFISnippetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2769831835302E003B67D6 /* AFISnippetCell.xib */; };
+		5A2769871835350D003B67D6 /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2769861835350D003B67D6 /* document.png */; };
+		5A276B4718353A2F003B67D6 /* AFIHTMLFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A276B4618353A2F003B67D6 /* AFIHTMLFilter.m */; };
 		5A5E3A14183502B400BAD3F1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5E3A13183502B400BAD3F1 /* Twitter.framework */; };
 		5A5E3A1C1835063300BAD3F1 /* AFIProfileButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A5E3A1B1835063300BAD3F1 /* AFIProfileButton.xib */; };
 		5A5E3A1F1835067E00BAD3F1 /* AFIProfileButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E3A1E1835067E00BAD3F1 /* AFIProfileButton.m */; };
@@ -115,6 +119,12 @@
 		5A1098AC183141D3005D6DDA /* AFIContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContactVC.m; path = Controller/AFIContactVC.m; sourceTree = "<group>"; };
 		5A27697D18352548003B67D6 /* AFITimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFITimeLine.h; path = Model/AFITimeLine.h; sourceTree = "<group>"; };
 		5A27697E18352548003B67D6 /* AFITimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFITimeLine.m; path = Model/AFITimeLine.m; sourceTree = "<group>"; };
+		5A27698018353020003B67D6 /* AFISnippetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFISnippetCell.h; path = View/AFISnippetCell/AFISnippetCell.h; sourceTree = "<group>"; };
+		5A27698118353020003B67D6 /* AFISnippetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFISnippetCell.m; path = View/AFISnippetCell/AFISnippetCell.m; sourceTree = "<group>"; };
+		5A2769831835302E003B67D6 /* AFISnippetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AFISnippetCell.xib; path = View/AFISnippetCell/AFISnippetCell.xib; sourceTree = "<group>"; };
+		5A2769861835350D003B67D6 /* document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = document.png; sourceTree = "<group>"; };
+		5A276B4518353A2F003B67D6 /* AFIHTMLFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFIHTMLFilter.h; sourceTree = "<group>"; };
+		5A276B4618353A2F003B67D6 /* AFIHTMLFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFIHTMLFilter.m; sourceTree = "<group>"; };
 		5A5E3A13183502B400BAD3F1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5A5E3A1B1835063300BAD3F1 /* AFIProfileButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AFIProfileButton.xib; path = View/AFIProfileButton/AFIProfileButton.xib; sourceTree = "<group>"; };
 		5A5E3A1D1835067E00BAD3F1 /* AFIProfileButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIProfileButton.h; path = View/AFIProfileButton/AFIProfileButton.h; sourceTree = "<group>"; };
@@ -237,6 +247,7 @@
 				5A5E3A201835068500BAD3F1 /* AFIProfileButton */,
 				5A5E3A2618350E8400BAD3F1 /* AFIProfileTwitterCell */,
 				5A5E3A331835171F00BAD3F1 /* AFIProfileLinkedInCell */,
+				5A2769851835327E003B67D6 /* AFISnippetCell */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -298,6 +309,8 @@
 				5A109873183102C8005D6DDA /* InfoPlist.strings */,
 				5A109876183102C8005D6DDA /* main.m */,
 				5A109878183102C8005D6DDA /* sFetch-Prefix.pch */,
+				5A276B4518353A2F003B67D6 /* AFIHTMLFilter.h */,
+				5A276B4618353A2F003B67D6 /* AFIHTMLFilter.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -318,6 +331,16 @@
 				5A109895183102C8005D6DDA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A2769851835327E003B67D6 /* AFISnippetCell */ = {
+			isa = PBXGroup;
+			children = (
+				5A27698018353020003B67D6 /* AFISnippetCell.h */,
+				5A27698118353020003B67D6 /* AFISnippetCell.m */,
+				5A2769831835302E003B67D6 /* AFISnippetCell.xib */,
+			);
+			name = AFISnippetCell;
 			sourceTree = "<group>";
 		};
 		5A5E3A201835068500BAD3F1 /* AFIProfileButton */ = {
@@ -343,6 +366,7 @@
 		5A5E3A2918350FC700BAD3F1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5A2769861835350D003B67D6 /* document.png */,
 				5A5E3A341835183400BAD3F1 /* linkedin_w.png */,
 				5A5E3A2C1835163B00BAD3F1 /* twitter_w.png */,
 				5A5E3A2A1835155200BAD3F1 /* twitter.png */,
@@ -461,7 +485,9 @@
 				5A5E3A2518350E7F00BAD3F1 /* AFIProfileTwitterCell.xib in Resources */,
 				5A5E3A2D1835163B00BAD3F1 /* twitter_w.png in Resources */,
 				5A5E3A1C1835063300BAD3F1 /* AFIProfileButton.xib in Resources */,
+				5A2769841835302E003B67D6 /* AFISnippetCell.xib in Resources */,
 				5A109875183102C8005D6DDA /* InfoPlist.strings in Resources */,
+				5A2769871835350D003B67D6 /* document.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +518,7 @@
 				5A27697F18352548003B67D6 /* AFITimeLine.m in Sources */,
 				3217413C18350C5800460977 /* AFIEvent.m in Sources */,
 				3217413918350C3400460977 /* AFICallReport.m in Sources */,
+				5A27698218353020003B67D6 /* AFISnippetCell.m in Sources */,
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
 				5AC7B29E18339A65002F4957 /* AFIURLConnectionFactory.m in Sources */,
 				5A5E3A1F1835067E00BAD3F1 /* AFIProfileButton.m in Sources */,
@@ -502,6 +529,7 @@
 				5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */,
 				3217413318350A4C00460977 /* AFIMail.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
+				5A276B4718353A2F003B67D6 /* AFIHTMLFilter.m in Sources */,
 				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,
 				3217413F18350CB800460977 /* AFITask.m in Sources */,
 				3217413618350B6200460977 /* AFIDocument.m in Sources */,

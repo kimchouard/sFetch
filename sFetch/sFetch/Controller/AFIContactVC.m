@@ -11,11 +11,13 @@
 #import "AFIProfileSumaryCell.h"
 #import "AFIProfileTwitterCell.h"
 #import "AFIProfileLinkedInCell.h"
+#import "AFISnippetCell.h"
 #import "AFIProfileButton.h"
 #import "AFIURLConnectionFactory.h"
+#import "AFITimeLine.h"
 
 
-@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource>
+@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
@@ -38,6 +40,7 @@
     [AFIProfileSumaryCell registerToCollectionview:self.collectionView];
     [AFIProfileTwitterCell registerToCollectionview:self.collectionView];
     [AFIProfileLinkedInCell registerToCollectionview:self.collectionView];
+    [AFISnippetCell registerToTableView:self.tableView];
     
     self.refreshControl= [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(requestTimeLine) forControlEvents:UIControlEventValueChanged];
@@ -170,6 +173,7 @@
 
 - (void)reloadData
 {
+    self.data = [self.contact.timeLine getSnippets];
     [self.tableView reloadData];
 }
 
@@ -188,10 +192,10 @@
                           error:&error];
     
     NSLog(@"%@", json);
+    self.contact.timeLine = [AFITimeLine timeLineWithJson:json];
     
     [self.refreshControl endRefreshing];
     
-//    [AFIContactList setWithDictionary:json];
     [self reloadData];
     self.timeLineRequestConnection = nil;
 }
@@ -220,7 +224,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[UITableViewCell alloc] init];
+    AFISnippetCell *cell = [tableView dequeueReusableCellWithIdentifier:[AFISnippetCell reusableIdentifier] forIndexPath:indexPath];
+    
+    AFISnippet *snippet = [self.data objectAtIndex:indexPath.row];
+    
+    cell.dateLabel.text = snippet.date;
+    cell.titleLabel.text = snippet.name;
+    cell.sampleText.text = @"Nice !";
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 105;
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFITimeLine.h"
 
 #define SERVER_KEY_NAME @"name"
 #define SERVER_KEY_JOB @"job"
@@ -19,6 +20,8 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *job;
 @property (strong, nonatomic) NSString *imageURL;
+
+@property (strong, nonatomic) AFITimeLine *timeLine;
 
 
 - (id)initLazy;
