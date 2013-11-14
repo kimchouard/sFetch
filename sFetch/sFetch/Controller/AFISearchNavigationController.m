@@ -58,17 +58,16 @@
     [view addSubview:self.searchBar];
 }
 
-- (void)showKeyboardAndCancelButton
+- (void)showCancelButton
 {
-    
-    //self.searchBar.text = self.lastSearchedString;
-    if([self.searchBar becomeFirstResponder]) {
-        NSLog(@"Wazaaaa");
-    } else {
-        NSLog(@"NO Wazaaaa");
-    }
     [self popToRootViewControllerAnimated:YES];
     [self.searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)showKeyboardAndCancelButton
+{
+    [self.searchBar becomeFirstResponder];
+    [self showCancelButton];
 }
 
 - (void)hideKeyboardAndCancelButton
@@ -95,7 +94,7 @@
     if ([self.delegate respondsToSelector:@selector(navigationSearchBarShouldBeginEditing:)]) {
         [self.searchDelegate navigationSearchBarShouldBeginEditing:searchBar];
     }
-    [self showKeyboardAndCancelButton];
+    [self showCancelButton];
     return YES;
 }
 
