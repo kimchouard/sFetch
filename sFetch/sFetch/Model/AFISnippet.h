@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *source;
+@property (strong, nonatomic) NSString *url;
 
 - (id)initWithInfo:(NSDictionary *)info;
 

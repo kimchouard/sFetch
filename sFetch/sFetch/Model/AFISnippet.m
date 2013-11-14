@@ -29,17 +29,12 @@
 {
     NSString *sDate = [info objectForKey:SERVER_KEY_DATE];
     
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-//    [dateFormatter setLocale:enUSPOSIXLocale];
-//    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
-    
-    
     _date = sDate; //[dateFormatter dateFromString:sDate];
-    
     
     NSString *tempName = [[info objectForKey:@"datas"] objectForKey:@"title"];
     _name = [AFIHTMLFilter stringByStrippingHTML:tempName];
+    
+    _url = [[info objectForKey:@"actions"] objectForKey:@"show"];
     
     
 }

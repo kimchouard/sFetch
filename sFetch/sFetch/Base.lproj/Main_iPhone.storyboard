@@ -160,7 +160,7 @@
         <!--Web ViewVC-->
         <scene sceneID="Jgb-BV-Pe7">
             <objects>
-                <viewController id="6kD-AQ-WXG" customClass="AFIWebViewVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AFIWebViewVC" id="6kD-AQ-WXG" customClass="AFIWebViewVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iqh-7A-zu1"/>
                         <viewControllerLayoutGuide type="bottom" id="9ar-4P-ufi"/>
@@ -181,7 +181,7 @@
                                     <constraint firstAttribute="height" constant="44" id="lIu-Ih-erK"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="X" id="33L-5S-7fU">
+                                    <barButtonItem title="Fermer" id="33L-5S-7fU">
                                         <connections>
                                             <action selector="sender:" destination="6kD-AQ-WXG" id="tUy-dy-iiv"/>
                                         </connections>
@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfP-5a-r34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="461"/>
+            <point key="canvasLocation" x="956" y="-204"/>
         </scene>
         <!--Call ReportVC-->
         <scene sceneID="DGn-lF-DJt">

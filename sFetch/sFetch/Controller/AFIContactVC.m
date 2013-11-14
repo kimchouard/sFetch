@@ -17,6 +17,7 @@
 #import "AFITimeLine.h"
 #import "MBProgressHUD.h"
 #import "AFIUser.h"
+#import "AFIWebViewVC.h"
 
 
 @interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -213,7 +214,7 @@
                           options:kNilOptions
                           error:&error];
     
-//    NSLog(@"%@", json);
+    NSLog(@"%@", json);
     self.contact.timeLine = [AFITimeLine timeLineWithJson:json];
     
     [self.refreshControl endRefreshing];
@@ -257,6 +258,15 @@
     cell.sampleText.text = @"Nice !";
     
     return cell;
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AFIWebViewVC *webViewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIWebViewVC"];
+    webViewVC.url = [self.data objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:webViewVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -26,7 +26,7 @@
     [super viewWillAppear:animated];
     
     UIViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFILoginVC"];
-    [self presentViewController:loginVC animated:YES completion:Nil];
+//    [self presentViewController:loginVC animated:YES completion:Nil];
 }
 
 @end
