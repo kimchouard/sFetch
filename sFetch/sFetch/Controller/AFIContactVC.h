@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) AFIContact *contact;
 
+- (void)requestTimeLine;
 
 @end

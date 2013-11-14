@@ -15,12 +15,15 @@
 #import "AFIProfileButton.h"
 #import "AFIURLConnectionFactory.h"
 #import "AFITimeLine.h"
+#import "MBProgressHUD.h"
 
 
 @interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
+
+@property (strong, nonatomic) MBProgressHUD *loadingView;
 
 @property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
 
@@ -67,8 +70,9 @@
     //I'm assuming here that your nib's top level contains only the view
     //you want, so it's the only item in the array.
     AFIProfileButton *mailButton = [nibContents objectAtIndex:0];
-    mailButton.titleLabel.text = @"Mail";
+    [mailButton setTitle:@"Mail" forState:UIControlStateNormal];
     [mailButton setDesign];
+    [mailButton addTarget:self action:@selector(doMail) forControlEvents:UIControlEventAllTouchEvents];
     
     
     nibContents = [[NSBundle mainBundle] loadNibNamed:@"AFIProfileButton"
@@ -77,13 +81,27 @@
     //I'm assuming here that your nib's top level contains only the view
     //you want, so it's the only item in the array.
     AFIProfileButton *callButton = [nibContents objectAtIndex:0];
-    callButton.titleLabel.text = @"Call";
+    [callButton setTitle:@"Call" forState:UIControlStateNormal];
     [callButton setDesign];
+    [callButton addTarget:self action:@selector(doCall) forControlEvents:UIControlEventAllTouchEvents];
     
     mailButton.frame = CGRectMake(0,95,160,25);
     [self.profileView addSubview:mailButton];
     callButton.frame = CGRectMake(160,95,160,25);
     [self.profileView addSubview:callButton];
+}
+
+- (void)doCall
+{
+    NSString *phoneNumber = @"1-800-555-1212"; // dynamically assigned
+    NSString *phoneURLString = [NSString stringWithFormat:@"tel:%@", phoneNumber];
+    NSURL *phoneURL = [NSURL URLWithString:phoneURLString];
+    [[UIApplication sharedApplication] openURL:phoneURL];
+}
+
+- (void)doMail
+{
+    
 }
 
 #pragma mark UICollectionViewDataSource
@@ -179,7 +197,9 @@
 
 - (void)connectionDidStart:(AFIURLConnection *)connection
 {
-    
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 120, 320, 500)];
+//    [self.view addSubview:view];
+//    [self showLoadingViewInView:view];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -191,13 +211,14 @@
                           options:kNilOptions
                           error:&error];
     
-    NSLog(@"%@", json);
+//    NSLog(@"%@", json);
     self.contact.timeLine = [AFITimeLine timeLineWithJson:json];
     
     [self.refreshControl endRefreshing];
     
     [self reloadData];
     self.timeLineRequestConnection = nil;
+    [self hideLoadingView];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -208,6 +229,7 @@
     
     NSLog(@"%@", error);
     self.timeLineRequestConnection = nil;
+    [self hideLoadingView];
 }
 
 #pragma mark UITableViewDataSource
@@ -238,6 +260,31 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120;
+}
+
+#pragma mark - MBProgressHUD
+
+- (void) showLoadingViewInView:(UIView*)v
+{
+    UIView *targetV = (v ? v : self.view);
+    
+    if (!self.loadingView) {
+        self.loadingView = [[MBProgressHUD alloc] initWithView:targetV];
+        self.loadingView.minShowTime = 1.0f;
+        self.loadingView.mode = MBProgressHUDModeIndeterminate;
+        self.loadingView.removeFromSuperViewOnHide = YES;
+        self.loadingView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    }
+    if(!self.loadingView.superview) {
+        self.loadingView.frame = targetV.bounds;
+        [targetV addSubview:self.loadingView];
+    }
+    [self.loadingView show:YES];
+}
+- (void) hideLoadingView
+{
+    if (self.loadingView.superview)
+        [self.loadingView hide:YES];
 }
 
 

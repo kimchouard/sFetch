@@ -236,6 +236,8 @@
         if ([segue.destinationViewController isMemberOfClass:[AFIContactVC class]]) {
             AFIContactVC *destinationVC = (AFIContactVC *)segue.destinationViewController;
             
+            [destinationVC requestTimeLine];
+            
             if (self.isSearching) {
                 destinationVC.contact = [self.filteredData objectAtIndex:indexPath.row];
             } else {
