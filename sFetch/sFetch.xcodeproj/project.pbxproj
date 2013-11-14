@@ -42,6 +42,7 @@
 		5A2769871835350D003B67D6 /* document.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2769861835350D003B67D6 /* document.png */; };
 		5A276B4718353A2F003B67D6 /* AFIHTMLFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A276B4618353A2F003B67D6 /* AFIHTMLFilter.m */; };
 		5A276B4A18353D33003B67D6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A276B4918353D33003B67D6 /* MBProgressHUD.m */; };
+		5A276B4D18354696003B67D6 /* AFICallReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A276B4C18354696003B67D6 /* AFICallReportVC.m */; };
 		5A5E3A14183502B400BAD3F1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5E3A13183502B400BAD3F1 /* Twitter.framework */; };
 		5A5E3A1C1835063300BAD3F1 /* AFIProfileButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A5E3A1B1835063300BAD3F1 /* AFIProfileButton.xib */; };
 		5A5E3A1F1835067E00BAD3F1 /* AFIProfileButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E3A1E1835067E00BAD3F1 /* AFIProfileButton.m */; };
@@ -128,6 +129,8 @@
 		5A276B4618353A2F003B67D6 /* AFIHTMLFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFIHTMLFilter.m; sourceTree = "<group>"; };
 		5A276B4818353D33003B67D6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		5A276B4918353D33003B67D6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		5A276B4B18354696003B67D6 /* AFICallReportVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFICallReportVC.h; path = Controller/AFICallReportVC.h; sourceTree = "<group>"; };
+		5A276B4C18354696003B67D6 /* AFICallReportVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFICallReportVC.m; path = Controller/AFICallReportVC.m; sourceTree = "<group>"; };
 		5A5E3A13183502B400BAD3F1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		5A5E3A1B1835063300BAD3F1 /* AFIProfileButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AFIProfileButton.xib; path = View/AFIProfileButton/AFIProfileButton.xib; sourceTree = "<group>"; };
 		5A5E3A1D1835067E00BAD3F1 /* AFIProfileButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIProfileButton.h; path = View/AFIProfileButton/AFIProfileButton.h; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 			children = (
 				5A109882183102C8005D6DDA /* AFIContactSearchVC.h */,
 				5A109883183102C8005D6DDA /* AFIContactSearchVC.m */,
+				5A276B4B18354696003B67D6 /* AFICallReportVC.h */,
+				5A276B4C18354696003B67D6 /* AFICallReportVC.m */,
 				5A052933183278300079F0DA /* AFIWebViewVC.h */,
 				5A052934183278300079F0DA /* AFIWebViewVC.m */,
 				5A052930183274EC0079F0DA /* AFILoginVC.h */,
@@ -534,6 +539,7 @@
 				5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */,
 				3217413318350A4C00460977 /* AFIMail.m in Sources */,
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
+				5A276B4D18354696003B67D6 /* AFICallReportVC.m in Sources */,
 				5A276B4718353A2F003B67D6 /* AFIHTMLFilter.m in Sources */,
 				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,
 				3217413F18350CB800460977 /* AFITask.m in Sources */,

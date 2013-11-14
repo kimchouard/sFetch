@@ -208,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="-516" y="461"/>
         </scene>
-        <!--View Controller-->
+        <!--Call ReportVC-->
         <scene sceneID="DGn-lF-DJt">
             <objects>
-                <viewController storyboardIdentifier="CallBack" id="L19-tK-9gL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CallBack" id="L19-tK-9gL" customClass="AFICallReportVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yso-Go-vR9"/>
                         <viewControllerLayoutGuide type="bottom" id="v2c-vx-AwR"/>
@@ -227,6 +227,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J9w-hD-Knw">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Fermer" id="x7N-Gp-Pas">
+                                        <connections>
+                                            <action selector="dissmissButton:" destination="L19-tK-9gL" id="dhw-gl-A91"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

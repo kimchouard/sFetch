@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="118" id="MX3-JL-hNR" customClass="AFISnippetCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="118" id="MX3-JL-hNR" customClass="AFISnippetCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MX3-JL-hNR" id="rlf-He-dMj">
@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" constant="50" id="Xtb-hc-4lP"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-eb-cVM">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsT-eb-cVM">
                         <rect key="frame" x="10" y="60" width="290" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
