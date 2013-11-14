@@ -17,9 +17,12 @@
     return [AFIURLConnection connectionWithRequest:request delegate:delegate];
 }
 
-+ (AFIURLConnection *)connectionGetTimeLineForUserIdentifier:(NSString *)identifier
++ (AFIURLConnection *)connectionGetTimeLineForUserName:(NSString *)name andDelegate:(id<AFIURLConnectionDelegate>)delegate
 {
-    return nil;
+    NSString *URL = [NSString stringWithFormat:@"http://api.anyfetch.com/documents?search=%@", name];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
+    
+    return [AFIURLConnection connectionWithRequest:request delegate:delegate];
 }
 
 @end

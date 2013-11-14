@@ -15,6 +15,6 @@
 
 + (AFIURLConnection *)connectionGetContactWithDelegate:(id<AFIURLConnectionDelegate>)delegate;
 
-+ (AFIURLConnection *)connectionGetTimeLineForUserIdentifier:(NSString *)identifier;
++ (AFIURLConnection *)connectionGetTimeLineForUserName:(NSString *)name andDelegate:(id<AFIURLConnectionDelegate>)delegate;
 
 @end
