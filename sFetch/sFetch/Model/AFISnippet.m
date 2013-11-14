@@ -34,7 +34,7 @@
     NSString *tempName = [[info objectForKey:@"datas"] objectForKey:@"title"];
     _name = [AFIHTMLFilter stringByStrippingHTML:tempName];
     
-    _url = [[info objectForKey:@"actions"] objectForKey:@"show"];
+    _url = [info objectForKey:@"document_url"];
     
     
 }
