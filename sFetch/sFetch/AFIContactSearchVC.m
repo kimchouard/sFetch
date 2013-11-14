@@ -45,8 +45,6 @@
     } else {
         [((AFISearchNavigationController *) self.navigationController) showKeyboardAndCancelButton];
     }
-    
-//    [self triggerAutoRefresh];
 }
 
 - (void)viewDidLoad

@@ -10,7 +10,7 @@
 #import "AFIContact.h"
 
 
-@interface AFISearchNavigationController () <UISearchBarDelegate>
+@interface AFISearchNavigationController () <UISearchBarDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UIButton *homeButton;
@@ -41,20 +41,7 @@
     self.searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchBar.delegate = self;
-    
-//    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 276, 44)];
-//    [self.searchBar insertSubview:whiteView aboveSubview:[self.searchBar.subviews lastObject]];
-//    [self.searchBar addSubview:whiteView];
-//    
-//    for ( UIView * subview in self.searchBar.subviews)
-//    {
-//        NSLog(@"%@", [subview class]);
-//        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground") ] )
-//            subview.alpha = 0.0;
-//        
-//        if ([subview isKindOfClass:NSClassFromString(@"UISegmentedControl") ] )
-//            subview.alpha = 0.0;
-//    }
+
     [view addSubview:self.searchBar];
 }
 
@@ -115,6 +102,7 @@
         [self.searchDelegate navigationSearchBar:searchBar textDidChange:searchText];
     }
     self.lastSearchedString = searchText;
+    self.lastContactViewed = nil;
 }
 
 
@@ -123,6 +111,18 @@
 - (void)didTapHomeButton
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [self searchBar:self.searchBar textDidChange:self.searchBar.text];
+    return [super popToViewController:viewController animated:animated];
+}
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated
+{
+    [self searchBar:self.searchBar textDidChange:self.searchBar.text];
+    return [super popViewControllerAnimated:animated];
 }
 
 @end
