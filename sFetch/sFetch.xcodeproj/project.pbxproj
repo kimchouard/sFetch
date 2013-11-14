@@ -487,12 +487,10 @@
 				5A052935183278300079F0DA /* AFIWebViewVC.m in Sources */,
 				5A109877183102C8005D6DDA /* main.m in Sources */,
 				5A109884183102C8005D6DDA /* AFIContactSearchVC.m in Sources */,
-<<<<<<< HEAD
 				5A5E3A2318350E6900BAD3F1 /* AFIProfileTwitterCell.m in Sources */,
-=======
+				5A5E3A301835170400BAD3F1 /* AFIProfileLinkedInCell.m in Sources */,
 				3217413C18350C5800460977 /* AFIEvent.m in Sources */,
 				3217413918350C3400460977 /* AFICallReport.m in Sources */,
->>>>>>> 7f500a50f4ca53f7b0ac04ce3b3577a955b29f90
 				5A10987B183102C8005D6DDA /* AFIAppDelegate.m in Sources */,
 				5AC7B29E18339A65002F4957 /* AFIURLConnectionFactory.m in Sources */,
 				5A5E3A1F1835067E00BAD3F1 /* AFIProfileButton.m in Sources */,
@@ -501,11 +499,7 @@
 				5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */,
 				3217414218350CC600460977 /* AFINote.m in Sources */,
 				5A052932183274EC0079F0DA /* AFILoginVC.m in Sources */,
-<<<<<<< HEAD
-				5A5E3A301835170400BAD3F1 /* AFIProfileLinkedInCell.m in Sources */,
-=======
 				3217413318350A4C00460977 /* AFIMail.m in Sources */,
->>>>>>> 7f500a50f4ca53f7b0ac04ce3b3577a955b29f90
 				5A1098A418310673005D6DDA /* AFIContact.m in Sources */,
 				5AC7B298183379B0002F4957 /* AFIUser.m in Sources */,
 				32174130183508C100460977 /* AFITimeline.m in Sources */,
