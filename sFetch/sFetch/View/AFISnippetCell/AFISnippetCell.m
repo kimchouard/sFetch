@@ -30,4 +30,14 @@
     return IDENTIFIER;
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    // do nothing
+}
+
+- (void)setSelected:(BOOL)selected
+{
+    // do nothing
+}
+
 @end
