@@ -126,7 +126,7 @@
                           
                           options:kNilOptions
                           error:&error];
-    
+    NSLog(@"%@", json);
     [self setWithDictionary:json];
     self.connection = Nil;
     self.isLoading = NO;

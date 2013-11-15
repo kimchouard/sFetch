@@ -20,7 +20,7 @@
 #import "AFIWebViewVC.h"
 
 
-@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface AFIContactVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, AFIURLConnectionDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
@@ -76,7 +76,7 @@
     AFIProfileButton *mailButton = [nibContents objectAtIndex:0];
     [mailButton setTitle:@"Mail" forState:UIControlStateNormal];
     [mailButton setDesign];
-    [mailButton addTarget:self action:@selector(doMail) forControlEvents:UIControlEventAllTouchEvents];
+    [mailButton addTarget:self action:@selector(doMail) forControlEvents:UIControlEventTouchUpInside];
     
     
     nibContents = [[NSBundle mainBundle] loadNibNamed:@"AFIProfileButton"
@@ -87,7 +87,7 @@
     AFIProfileButton *callButton = [nibContents objectAtIndex:0];
     [callButton setTitle:@"Call" forState:UIControlStateNormal];
     [callButton setDesign];
-    [callButton addTarget:self action:@selector(doCall) forControlEvents:UIControlEventAllTouchEvents];
+    [callButton addTarget:self action:@selector(showCallAppPicker) forControlEvents:UIControlEventTouchUpInside];
     
     mailButton.frame = CGRectMake(0,95,160,25);
     [self.profileView addSubview:mailButton];
@@ -95,10 +95,30 @@
     [self.profileView addSubview:callButton];
 }
 
+- (void)showCallAppPicker
+{
+    BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"skype:"]];
+    if (installed) {
+        [[[UIActionSheet alloc] initWithTitle:@"Title"
+                                     delegate:self
+                            cancelButtonTitle:@"Cancel"
+                       destructiveButtonTitle:@"Destroy"
+                            otherButtonTitles:@"Voice call", @"Skype", nil]
+         showInView:self.view];
+    } else {
+        [[[UIActionSheet alloc] initWithTitle:@"Title"
+                                     delegate:self
+                            cancelButtonTitle:@"Cancel"
+                       destructiveButtonTitle:Nil
+                            otherButtonTitles:@"Voice call", @"Skype", nil]
+         showInView:self.view];
+    }
+}
+
 - (void)doCall
 {
     NSString *phoneNumber = @"1-800-555-1212"; // dynamically assigned
-    NSString *phoneURLString = [NSString stringWithFormat:@"tel:%@", phoneNumber];
+    NSString *phoneURLString = [NSString stringWithFormat:@"telprompt:%@", phoneNumber];
     NSURL *phoneURL = [NSURL URLWithString:phoneURLString];
     [[UIApplication sharedApplication] openURL:phoneURL];
     [AFIUser setCalling:YES];
@@ -302,6 +322,15 @@
 {
     if (self.loadingView.superview)
         [self.loadingView hide:YES];
+}
+
+#pragma amrk UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self doCall];
+    }
 }
 
 

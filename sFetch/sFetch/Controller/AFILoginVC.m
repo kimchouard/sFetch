@@ -64,7 +64,8 @@
                                                                 login:self.mailLabel.text
                                                           andPassword:self.passwordLabel.text];
     
-    [self.loginConnection startConnection];
+    [self performLogin];
+//    [self.loginConnection startConnection];
 //    [self performLogin];
 }
 
@@ -104,27 +105,30 @@
                           options:kNilOptions
                           error:&error];
     
-    if ([json count] == 2) {
-        [self accessRefusedWithJson:json];
-    }
+    
     
     NSLog(@"%@", json);
     
-    NSArray *providerStatus = [json objectForKey:PROVIDER_STATUS_KEY];
     
-    BOOL success = NO;
-    for (NSDictionary *provider in providerStatus) {
-        // search for Salesforce in user accounts
-        NSString *name = [provider objectForKey:PROVIDER_NAME_KEY];
-        if ([name isEqualToString:@"Salesforce"] || [name isEqualToString:@"(local) Salesforce"]) {
-            success = YES;
-        }
-    }
-    
-    if (success) {
-        [self performLogin];
+    if ([json count] == 2) {
+        [self accessRefusedWithJson:json];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Acces refused" message:@"Check your id and password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        NSArray *providerStatus = [json objectForKey:PROVIDER_STATUS_KEY];
+        
+        BOOL success = NO;
+        for (NSDictionary *provider in providerStatus) {
+            // search for Salesforce in user accounts
+            NSString *name = [provider objectForKey:PROVIDER_NAME_KEY];
+            if ([name isEqualToString:@"Salesforce"] || [name isEqualToString:@"(local) Salesforce"]) {
+                success = YES;
+            }
+        }
+        
+        if (success) {
+            [self performLogin];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Acces refused" message:@"Check your id and password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        }
     }
 }
 

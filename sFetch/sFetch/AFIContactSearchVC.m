@@ -113,7 +113,6 @@
 - (void)reloadData
 {
     self.data = [AFIContactList contacts];
-    self.data = [AFIUser contactHistory];
     NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
     [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
 }

@@ -461,6 +461,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "AnyFetch - INSA";
 				TargetAttributes = {
+					5A109866183102C8005D6DDA = {
+						DevelopmentTeam = EYM46CND4Y;
+					};
 					5A10988A183102C8005D6DDA = {
 						TestTargetID = 5A109866183102C8005D6DDA;
 					};
@@ -687,10 +690,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sFetch/sFetch-Prefix.pch";
 				INFOPLIST_FILE = "sFetch/sFetch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -700,10 +706,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sFetch/sFetch-Prefix.pch";
 				INFOPLIST_FILE = "sFetch/sFetch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
