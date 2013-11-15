@@ -26,12 +26,4 @@
     return [AFIURLConnection connectionWithRequest:request delegate:delegate];
 }
 
-+ (AFIURLConnection *)connectionGetHtmlVersionOfSnippet:(NSString *)fullUrlSnippet andDelegate:(id<AFIURLConnectionDelegate>)delegate
-{
-    NSString *URL = [NSString stringWithFormat:@"http://api.anyfetch.com%@", fullUrlSnippet];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
-    
-    return [AFIURLConnection connectionWithRequest:request delegate:delegate];
-}
-
 @end
