@@ -28,6 +28,8 @@
 @property (strong, nonatomic) NSArray *data; // of AFIContact
 @property (strong, nonatomic) NSArray *filteredData; // of AFIContact
 
+@property (strong, nonatomic) AFISearchNavigationController *navVC; // never use or strong here, except for hackaton
+
 @property (nonatomic) BOOL isSearching;
 @property (nonatomic) BOOL firstAppearance;
 
@@ -39,13 +41,20 @@
 {
     [super viewDidAppear:animated];
     
-    ((AFISearchNavigationController *)self.navigationController).searchDelegate = self;
+    self.navVC = ((AFISearchNavigationController *) self.navigationController);
+    self.navVC.searchDelegate = self;
     
     if (self.firstAppearance) {
         self.firstAppearance = NO;
     } else {
-        [((AFISearchNavigationController *) self.navigationController) showKeyboardAndCancelButton];
+        [self.navVC showKeyboardAndCancelButton];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.navVC fixSearchBarToTop:NO];
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewDidLoad

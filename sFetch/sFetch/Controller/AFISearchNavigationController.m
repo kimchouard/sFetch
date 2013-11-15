@@ -36,7 +36,7 @@
     [super viewDidLoad];
     
     // Hide nav bar
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 70)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 65)];
     [view setBackgroundColor:[UIColor colorWithRed:0.251 green:0.588 blue:0.263 alpha:1.0]];
     [self.view addSubview:view];
     
@@ -64,6 +64,14 @@
     [self.navigationBarView addSubview:self.searchBar];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    if (animated) {
+//        [self mooveNavBarDown];
+//    }
+}
+
 - (void)fixSearchBarToTop:(BOOL)fixedTop
 {
     if (fixedTop) {
@@ -85,7 +93,10 @@
                              [self.searchBar setFrame:SEARCHBAR_TOP_FRAME];
                              self.homeButton.alpha = 1.0;
                          }
-                         completion:Nil];
+                         completion:^(BOOL finished){
+                             UIViewController *contactSearchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIContactSearchVC"];
+                             [self pushViewController:contactSearchVC animated:YES];
+                         }];
     }
 }
 
@@ -119,7 +130,6 @@
 
 - (void)hideKeyboardAndCancelButton
 {
-    [self fixSearchBarToTop:NO];
     [self.searchBar resignFirstResponder];
     [self.searchBar setShowsCancelButton:NO animated:YES];
 }
@@ -142,7 +152,9 @@
     if ([self.delegate respondsToSelector:@selector(navigationSearchBarShouldBeginEditing:)]) {
         [self.searchDelegate navigationSearchBarShouldBeginEditing:searchBar];
     }
-    [self fixSearchBarToTop:YES];
+    if ([self.viewControllers count] == 1) {
+        [self fixSearchBarToTop:YES];
+    }
     [self showCancelButton];
     return YES;
 }
@@ -153,6 +165,8 @@
         AFIContactVC *destinationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIContactVC"];
         destinationVC.contact = self.lastContactViewed;
         [self pushViewController:destinationVC animated:YES];
+    } else {
+        [self popToRootViewControllerAnimated:YES];
     }
     
     [self hideKeyboardAndCancelButton];
