@@ -12,6 +12,7 @@
 #import "AFIContactVC.h"
 #import "AFIURLConnectionFactory.h"
 #import "AFIProfileButton.h"
+#import "AFIUser.h"
 
 #define CELL_IDENTIFIER @"contactCell"
 #define SEGUE_IDENTIFIER @"displayContactSegue"
@@ -112,6 +113,7 @@
 - (void)reloadData
 {
     self.data = [AFIContactList contacts];
+    self.data = [AFIUser contactHistory];
     NSIndexSet *set = [NSIndexSet indexSetWithIndex:0];
     [self.tableView reloadSections:set withRowAnimation:UITableViewRowAnimationAutomatic];
 }

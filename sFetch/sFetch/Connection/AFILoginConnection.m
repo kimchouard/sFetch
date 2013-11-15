@@ -37,8 +37,12 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [AFIUser setLogin:self.login andPassword:self.password];
     [super connection:connection didReceiveData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [super connectionDidFinishLoading:connection];
 }
 
 @end
