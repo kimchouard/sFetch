@@ -29,7 +29,7 @@
 @property (strong, nonatomic) NSArray *data; // of AFIContact
 @property (strong, nonatomic) NSArray *filteredData; // of AFIContact
 
-@property (strong, nonatomic) AFISearchNavigationController *navVC; // never use or strong here, except for hackaton
+@property (strong, nonatomic) AFISearchNavigationController *navVC; // never use a strong here, except for hackaton
 
 @property (nonatomic) BOOL isSearching;
 @property (nonatomic) BOOL firstAppearance;
@@ -56,6 +56,11 @@
 {
     [self.navVC fixSearchBarToTop:NO];
     [super viewDidDisappear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
 }
 
 - (void)viewDidLoad

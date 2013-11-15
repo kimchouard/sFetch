@@ -117,7 +117,7 @@
 
 - (void)doCall
 {
-    NSString *phoneNumber = @"1-800-555-1212"; // dynamically assigned
+    NSString *phoneNumber = @"0674892615"; // dynamically assigned
     NSString *phoneURLString = [NSString stringWithFormat:@"telprompt:%@", phoneNumber];
     NSURL *phoneURL = [NSURL URLWithString:phoneURLString];
     [[UIApplication sharedApplication] openURL:phoneURL];
@@ -328,7 +328,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
+    if (buttonIndex == 1) {
         [self doCall];
     }
 }

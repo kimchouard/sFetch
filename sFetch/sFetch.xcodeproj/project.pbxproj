@@ -54,6 +54,7 @@
 		5A5E3A301835170400BAD3F1 /* AFIProfileLinkedInCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5E3A2F1835170400BAD3F1 /* AFIProfileLinkedInCell.m */; };
 		5A5E3A321835171700BAD3F1 /* AFIProfileLinkedInCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A5E3A311835171700BAD3F1 /* AFIProfileLinkedInCell.xib */; };
 		5A5E3A351835183400BAD3F1 /* linkedin_w.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A5E3A341835183400BAD3F1 /* linkedin_w.png */; };
+		5AB618891836A7B900F5E7A5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB618881836A7B900F5E7A5 /* CoreTelephony.framework */; };
 		5AC7B2941833689A002F4957 /* AFIURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B2931833689A002F4957 /* AFIURLConnection.m */; };
 		5AC7B298183379B0002F4957 /* AFIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B297183379B0002F4957 /* AFIUser.m */; };
 		5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */; };
@@ -147,6 +148,7 @@
 		5A5E3A2F1835170400BAD3F1 /* AFIProfileLinkedInCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIProfileLinkedInCell.m; path = View/AFIProfileLinkedInCell/AFIProfileLinkedInCell.m; sourceTree = "<group>"; };
 		5A5E3A311835171700BAD3F1 /* AFIProfileLinkedInCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AFIProfileLinkedInCell.xib; path = View/AFIProfileLinkedInCell/AFIProfileLinkedInCell.xib; sourceTree = "<group>"; };
 		5A5E3A341835183400BAD3F1 /* linkedin_w.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linkedin_w.png; sourceTree = "<group>"; };
+		5AB618881836A7B900F5E7A5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5AC7B2921833689A002F4957 /* AFIURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIURLConnection.h; path = Connection/AFIURLConnection.h; sourceTree = "<group>"; };
 		5AC7B2931833689A002F4957 /* AFIURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIURLConnection.m; path = Connection/AFIURLConnection.m; sourceTree = "<group>"; };
 		5AC7B296183379B0002F4957 /* AFIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIUser.h; path = Model/AFIUser.h; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB618891836A7B900F5E7A5 /* CoreTelephony.framework in Frameworks */,
 				5A5E3A14183502B400BAD3F1 /* Twitter.framework in Frameworks */,
 				5A10986D183102C8005D6DDA /* CoreGraphics.framework in Frameworks */,
 				5A10986F183102C8005D6DDA /* UIKit.framework in Frameworks */,
@@ -287,6 +290,7 @@
 		5A109869183102C8005D6DDA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AB618881836A7B900F5E7A5 /* CoreTelephony.framework */,
 				5A5E3A13183502B400BAD3F1 /* Twitter.framework */,
 				5A052953183287670079F0DA /* Security.framework */,
 				5A10986A183102C8005D6DDA /* Foundation.framework */,
