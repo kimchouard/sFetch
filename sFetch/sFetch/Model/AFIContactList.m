@@ -128,6 +128,7 @@
                           error:&error];
     
     [self setWithDictionary:json];
+    self.connection = Nil;
     self.isLoading = NO;
 }
 
@@ -136,6 +137,7 @@
     [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
     
     self.isLoading = NO;
+    self.connection = Nil;
     NSLog(@"%@", error);
 }
 

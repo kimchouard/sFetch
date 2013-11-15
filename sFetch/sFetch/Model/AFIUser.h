@@ -28,7 +28,7 @@
 + (void)setCalling:(BOOL)isCalling;
 + (BOOL)isCalling;
 
-+ (void)setAuthentifier:(BOOL)isAuthentified;
++ (void)setAuthentified:(BOOL)isAuthentified;
 + (BOOL)isAuthentified;
 
 + (NSArray *)contactHistory;

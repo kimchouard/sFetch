@@ -118,7 +118,7 @@
     return [AFIUser sharedUser].isCalling;
 }
 
-+ (void)setAuthentifier:(BOOL)isAuthentified
++ (void)setAuthentified:(BOOL)isAuthentified
 {
     [AFIUser sharedUser].isAuthentified = isAuthentified;
 }

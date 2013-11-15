@@ -70,7 +70,7 @@
 - (void)performLogin
 {
     [AFIContactList reload];
-    [AFIUser setAuthentifier:YES];
+    [AFIUser setAuthentified:YES];
 //    [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
