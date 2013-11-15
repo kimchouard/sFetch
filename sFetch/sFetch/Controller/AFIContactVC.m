@@ -214,7 +214,7 @@
                           options:kNilOptions
                           error:&error];
     
-    NSLog(@"%@", json);
+//    NSLog(@"%@", json);
     self.contact.timeLine = [AFITimeLine timeLineWithJson:json];
     
     [self.refreshControl endRefreshing];
