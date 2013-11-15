@@ -10,8 +10,11 @@
 #import "AFIUser.h"
 #import "AFIContactVC.h"
 #import "AFIAppDelegate.h"
+#import "AFISearchNavigationController.h"
 
 #define CELL_IDENTIFIER @"contactCell"
+
+
 
 @interface AFIHomeVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -44,6 +47,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [((AFISearchNavigationController *)self.navigationController) hideKeyboardAndCancelButton];
     [self reloadData];
 }
 

@@ -21,6 +21,8 @@
 - (void)showKeyboardAndCancelButton;
 - (void)hideKeyboardAndCancelButton;
 
+- (void)fixSearchBarToTop:(BOOL)fixedTop;
+
 - (void)setDisplayedSearchString:(NSString *)string;
 
 

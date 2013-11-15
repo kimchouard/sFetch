@@ -65,6 +65,7 @@
                                                           andPassword:self.passwordLabel.text];
     
     [self.loginConnection startConnection];
+    [self performLogin];
 }
 
 - (void)performLogin
