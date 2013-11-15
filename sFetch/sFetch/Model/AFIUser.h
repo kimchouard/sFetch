@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFIContact.h"
 
 @interface AFIUser : NSObject
 
@@ -19,9 +20,17 @@
 
 + (void)setLogin:(NSString *)login andPassword:(NSString *)password;
 
+- (void)addContactToHistory:(AFIContact *)contact;
++ (void)addContactToHistory:(AFIContact *)contact;
+
 
 + (AFIUser *)sharedUser;
 + (void)setCalling:(BOOL)isCalling;
 + (BOOL)isCalling;
+
++ (void)setAuthentifier:(BOOL)isAuthentified;
++ (BOOL)isAuthentified;
+
++ (NSArray *)contactHistory;
 
 @end

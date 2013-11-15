@@ -10,15 +10,21 @@
 
 #define USER_FILE_PATH @"user.binary"
 
+#define CONTACT_HISTORY_SIZE 10
+
 #define ENCODE_KEY_LOGIN @"loginEncodeKey"
 #define ENCODE_KEY_PASSWORD @"passwordEncodeKey"
+#define ENCODE_KEY_HISTORY @"historyEncodeKey"
 
 @interface AFIUser() <NSCoding>
 
 @property (strong, nonatomic, readwrite) NSString *login;
 @property (strong, nonatomic, readwrite) NSString *password;
 
+@property (strong, nonatomic) NSArray *contactHistory;
+
 @property (nonatomic) BOOL isCalling;
+@property (nonatomic) BOOL isAuthentified;
 
 @end
 
@@ -43,6 +49,7 @@
 {
     [aCoder encodeObject:self.login forKey:ENCODE_KEY_LOGIN];
     [aCoder encodeObject:self.password forKey:ENCODE_KEY_PASSWORD];
+    [aCoder encodeObject:self.contactHistory forKey:ENCODE_KEY_HISTORY];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -51,6 +58,7 @@
     if (self) {
         _login = [aDecoder decodeObjectForKey:ENCODE_KEY_LOGIN];
         _password = [aDecoder decodeObjectForKey:ENCODE_KEY_PASSWORD];
+        _contactHistory = [aDecoder decodeObjectForKey:ENCODE_KEY_HISTORY];
     }
     return self;
 }
@@ -91,6 +99,7 @@
         if (!SharedUser) {
             SharedUser = [AFIUser unArchive];
             SharedUser.isCalling = NO;
+            SharedUser.isAuthentified = NO;
         } else {
             NSLog(@"/!\\ Did not unarchive user.");
         }
@@ -107,6 +116,55 @@
 + (BOOL)isCalling
 {
     return [AFIUser sharedUser].isCalling;
+}
+
++ (void)setAuthentifier:(BOOL)isAuthentified
+{
+    [AFIUser sharedUser].isAuthentified = isAuthentified;
+}
+
++ (BOOL)isAuthentified
+{
+    return [AFIUser sharedUser].isAuthentified;
+}
+
+#pragma mark Contact history
+
+@synthesize contactHistory = _contactHistory;
+
+- (NSArray *)contactHistory
+{
+    if (!_contactHistory) _contactHistory = [[NSArray alloc] init];
+    return _contactHistory;
+}
+
+- (void)setContactHistory:(NSArray *)contactHistory
+{
+    _contactHistory = contactHistory;
+    [self archive];
+}
+
+- (void)addContactToHistory:(AFIContact *)contact
+{
+    NSMutableArray *tempHistory = [NSMutableArray arrayWithArray:self.contactHistory];
+
+    [tempHistory insertObject:contact atIndex:0];
+    
+    if ([tempHistory count] > CONTACT_HISTORY_SIZE) {
+        [tempHistory removeObject:[tempHistory lastObject]];
+    }
+    
+    self.contactHistory = tempHistory;
+}
+
++ (void)addContactToHistory:(AFIContact *)contact
+{
+    [[AFIUser sharedUser] addContactToHistory:contact];
+}
+
++ (NSArray *)contactHistory
+{
+    return [AFIUser sharedUser].contactHistory;
 }
 
 @end

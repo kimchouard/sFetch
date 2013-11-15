@@ -9,11 +9,13 @@
 #import "AFILoginVC.h"
 #import "AFILoginConnection.h"
 #import "AFIContactList.h"
+#import "AFIUser.h"
 
 #define SEGUE_IDENTIFIER @"loginSegue"
+#define LOGIN_URL @"http://api.anyfetch.com"
 
 @interface AFILoginVC () <AFIURLConnectionDelegate, UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *urlLabel;
+
 @property (weak, nonatomic) IBOutlet UITextField *mailLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -28,9 +30,12 @@
 {
     [super viewDidLoad];
     
+    AFIUser *user = [AFIUser sharedUser];
+    self.mailLabel.text = user.login;
+    self.passwordLabel.text = user.password;
+    
     self.passwordLabel.secureTextEntry = YES;
     
-    self.urlLabel.delegate = self;
     self.mailLabel.delegate =self;
     self.passwordLabel.delegate = self;
     
@@ -40,7 +45,6 @@
 - (void)closeKeyboard
 {
     [self.mailLabel resignFirstResponder];
-    [self.urlLabel resignFirstResponder];
     [self.passwordLabel resignFirstResponder];
 }
 
@@ -56,17 +60,9 @@
 {
     [self closeKeyboard];
     
-    NSString *URL;
-    URL = self.urlLabel.text;
-    NSString *login = @"dartus.pierremarie@gmail.com";
-    login = self.mailLabel.text;
-    NSString *password = @"Pmdmedrd";
-    password = self.passwordLabel.text;
-    
-    
     self.loginConnection = [AFILoginConnection connectionWithDelegate:self
-                                                                login:login
-                                                          andPassword:password];
+                                                                login:self.mailLabel.text
+                                                          andPassword:self.passwordLabel.text];
     
     [self.loginConnection startConnection];
 }
@@ -74,6 +70,7 @@
 - (void)performLogin
 {
     [AFIContactList reload];
+    [AFIUser setAuthentifier:YES];
 //    [self performSegueWithIdentifier:SEGUE_IDENTIFIER sender:self];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }

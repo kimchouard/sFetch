@@ -47,6 +47,8 @@
     [AFIProfileLinkedInCell registerToCollectionview:self.collectionView];
     [AFISnippetCell registerToTableView:self.tableView];
     
+    [AFIUser addContactToHistory:self.contact];
+    
     self.refreshControl= [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(requestTimeLine) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
@@ -61,7 +63,7 @@
     AFISearchNavigationController *navVC = (AFISearchNavigationController *)self.navigationController;
     
     [navVC setDisplayedSearchString:self.contact.name];
-    navVC.lastContactViewed = self.contact;    
+    navVC.lastContactViewed = self.contact;
 }
 
 - (void)drawButtons

@@ -16,7 +16,7 @@
     
     //UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     //UIViewController* loginViewController = [mainstoryboard instantiateViewControllerWithIdentifier:@"AFILoginVC"];
-    //UIViewController *rootViewController = [self topMostController];
+    //UIViewController *rootViewController = [AFIAppDelegate topMostController];
     //[rootViewController presentViewController:loginViewController animated:YES completion:NULL];
 
     
@@ -48,7 +48,7 @@
     if ([AFIUser isCalling]) {
         UIStoryboard *mainstoryboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
         UIViewController* viewController = [mainstoryboard instantiateViewControllerWithIdentifier:@"CallBack"];
-        UIViewController *topViewcontroller = [self topMostController];
+        UIViewController *topViewcontroller = [AFIAppDelegate topMostController];
         [topViewcontroller presentViewController:viewController animated:YES completion:NULL];
     }
     
@@ -59,7 +59,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (UIViewController*) topMostController {
++ (UIViewController*)topMostController
+{
     UIViewController *topController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     while (topController.presentedViewController) {
         topController = topController.presentedViewController;
