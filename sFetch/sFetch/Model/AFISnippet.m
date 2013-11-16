@@ -27,11 +27,12 @@
 
 - (void)setWithInfo:(NSDictionary *)info
 {
+    NSLog(@"Snippet info :\n%@", info);
     NSString *sDate = [info objectForKey:SERVER_KEY_DATE];
     
     _date = sDate; //[dateFormatter dateFromString:sDate];
     
-    NSString *tempName = [[info objectForKey:@"datas"] objectForKey:@"title"];
+    NSString *tempName = [[info objectForKey:@"datas"] objectForKey:@"name"];
     _name = [AFIHTMLFilter stringByStrippingHTML:tempName];
     
     _url = [info objectForKey:@"document_url"];

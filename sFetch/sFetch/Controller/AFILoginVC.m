@@ -64,9 +64,8 @@
                                                                 login:self.mailLabel.text
                                                           andPassword:self.passwordLabel.text];
     
-    [self performLogin];
-//    [self.loginConnection startConnection];
 //    [self performLogin];
+    [self.loginConnection startConnection];
 }
 
 - (void)performLogin
@@ -107,7 +106,7 @@
     
     
     
-    NSLog(@"%@", json);
+    NSLog(@"LoginDidReceiveData:\n%@", json);
     
     
     if ([json count] == 2) {

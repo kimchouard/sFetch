@@ -126,7 +126,7 @@
                           
                           options:kNilOptions
                           error:&error];
-    NSLog(@"%@", json);
+    NSLog(@"ContactListDidReceiveData:\n%@", json);
     [self setWithDictionary:json];
     self.connection = Nil;
     self.isLoading = NO;
@@ -138,7 +138,7 @@
     
     self.isLoading = NO;
     self.connection = Nil;
-    NSLog(@"%@", error);
+    NSLog(@"ContactListDidFailData:\n%@", error);
 }
 
 @end

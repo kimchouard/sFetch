@@ -45,14 +45,5 @@
     [super connectionDidFinishLoading:connection];
 }
 
-- (void)startConnection
-{
-    
-}
-
-- (void)start
-{
-    
-}
 
 @end

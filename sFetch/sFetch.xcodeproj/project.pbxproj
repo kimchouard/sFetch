@@ -60,6 +60,7 @@
 		5AC7B29B18337FCC002F4957 /* AFILoginConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B29A18337FCC002F4957 /* AFILoginConnection.m */; };
 		5AC7B29E18339A65002F4957 /* AFIURLConnectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B29D18339A65002F4957 /* AFIURLConnectionFactory.m */; };
 		5AC7B2A11833BC88002F4957 /* AFIContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC7B2A01833BC88002F4957 /* AFIContactList.m */; };
+		5AD5B48C183764D30072767D /* AFICallCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD5B48B183764D30072767D /* AFICallCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		5AC7B29D18339A65002F4957 /* AFIURLConnectionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIURLConnectionFactory.m; path = Connection/AFIURLConnectionFactory.m; sourceTree = "<group>"; };
 		5AC7B29F1833BC88002F4957 /* AFIContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFIContactList.h; path = Model/AFIContactList.h; sourceTree = "<group>"; };
 		5AC7B2A01833BC88002F4957 /* AFIContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFIContactList.m; path = Model/AFIContactList.m; sourceTree = "<group>"; };
+		5AD5B48A183764D30072767D /* AFICallCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFICallCenter.h; sourceTree = "<group>"; };
+		5AD5B48B183764D30072767D /* AFICallCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFICallCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +311,8 @@
 				5A10987A183102C8005D6DDA /* AFIAppDelegate.m */,
 				5A10987C183102C8005D6DDA /* Main_iPhone.storyboard */,
 				5A10987F183102C8005D6DDA /* Main_iPad.storyboard */,
+				5AD5B48A183764D30072767D /* AFICallCenter.h */,
+				5AD5B48B183764D30072767D /* AFICallCenter.m */,
 				5AC7B295183368A0002F4957 /* Connection */,
 				5A05294318327CCA0079F0DA /* Views */,
 				5A05293618327AA60079F0DA /* Controllers */,
@@ -529,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A05294118327CC50079F0DA /* AFIProfileSumaryCell.m in Sources */,
+				5AD5B48C183764D30072767D /* AFICallCenter.m in Sources */,
 				5A1098AA18313DE7005D6DDA /* AFISearchNavigationController.m in Sources */,
 				326F618518354AB300F0F546 /* AFIHomeVC.m in Sources */,
 				3217412D1835060A00460977 /* AFISnippet.m in Sources */,

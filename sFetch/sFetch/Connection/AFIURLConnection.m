@@ -63,7 +63,7 @@
 
 - (void)startConnection
 {
-    NSLog(@"%@:%@", self.login, self.password);
+    NSLog(@"%@:%@\n%@", self.login, self.password, self);
     self.data = [[NSMutableData alloc] init];
     [super start];
     if ([self.afiDelegate respondsToSelector:@selector(connectionDidStart:)])
@@ -81,6 +81,7 @@
     
     NSString *value = [NSString stringWithFormat:@"Basic %@",base64String];
     
+    NSLog(@"Authorization = %@", value);
     [request setValue:value forHTTPHeaderField:@"Authorization"];
 }
 

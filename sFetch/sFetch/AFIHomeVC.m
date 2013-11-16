@@ -77,7 +77,7 @@
     AFIContact *contact = [self.data objectAtIndex:indexPath.row];
     
     cell.textLabel.text = contact.name;
-    cell.detailTextLabel.text = (![contact.job isKindOfClass:[NSNull class]]) ? contact.job : @"No job";
+    cell.detailTextLabel.text = [contact job];
     
     return cell;
 }
@@ -94,10 +94,11 @@
     AFIContact *contact = [self.data objectAtIndex:indexPath.row];
     AFIContactVC *destinationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"AFIContactVC"];
     destinationVC.contact = contact;
+    [destinationVC requestTimeLine];
     
-    [self performSegueWithIdentifier:@"contactSearchSegue" sender:self];
-    UINavigationController *navVC = (UINavigationController *)[AFIAppDelegate topMostController];
-    [navVC pushViewController:destinationVC animated:YES];
+//    [self performSegueWithIdentifier:@"contactSearchSegue" sender:self];
+//    UINavigationController *navVC = (UINavigationController *)[AFIAppDelegate topMostController];
+    [self.navigationController pushViewController:destinationVC animated:YES];
     
 }
 

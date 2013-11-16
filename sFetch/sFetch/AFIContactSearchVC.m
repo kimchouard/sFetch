@@ -151,7 +151,7 @@
                           options:kNilOptions
                           error:&error];
     
-    //NSLog(@"%@", json);
+    //NSLog(@"ContactSearchVCDidReceiveData:\n%@", json);
     
     [self.refreshControl endRefreshing];
     
@@ -166,7 +166,7 @@
     
     [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
     
-    NSLog(@"%@", error);
+    NSLog(@"ContactSearchVCDidFail:\n%@", error);
     self.contactsRequestConnection = nil;
 }
 
@@ -200,7 +200,7 @@
     }
     
     cell.textLabel.text = contact.name;
-    cell.detailTextLabel.text = (![contact.job isKindOfClass:[NSNull class]]) ? contact.job : @"No job";
+    cell.detailTextLabel.text = [contact job];
     
     return cell;
 }
@@ -251,13 +251,13 @@
         if ([segue.destinationViewController isMemberOfClass:[AFIContactVC class]]) {
             AFIContactVC *destinationVC = (AFIContactVC *)segue.destinationViewController;
             
-            [destinationVC requestTimeLine];
-            
             if (self.isSearching) {
                 destinationVC.contact = [self.filteredData objectAtIndex:indexPath.row];
             } else {
                 destinationVC.contact = [self.data objectAtIndex:indexPath.row];
             }
+            
+            [destinationVC requestTimeLine];
         }
     }
 }

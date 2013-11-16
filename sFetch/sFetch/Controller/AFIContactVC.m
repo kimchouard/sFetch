@@ -236,7 +236,7 @@
                           options:kNilOptions
                           error:&error];
     
-//    NSLog(@"%@", json);
+//    NSLog(@"ContactTimeLineDidFail:\n%@", json);
     self.contact.timeLine = [AFITimeLine timeLineWithJson:json];
     
     [self.refreshControl endRefreshing];
@@ -252,7 +252,7 @@
     
     [[[UIAlertView alloc] initWithTitle:@"ERROR" message:[error description] delegate:self cancelButtonTitle:@"Retour" otherButtonTitles:nil] show];
     
-    NSLog(@"%@", error);
+    NSLog(@"ContactTimeLineDidFail:\n%@", error);
     self.timeLineRequestConnection = nil;
     [self hideLoadingView];
 }

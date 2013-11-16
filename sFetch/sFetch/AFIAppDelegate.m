@@ -9,6 +9,8 @@
 #import "AFIAppDelegate.h"
 #import "AFIUser.h"
 #import <CoreTelephony/CTCallCenter.h>
+#import <CoreTelephony/CTCall.h>
+#import <CoreTelephony/CTSubscriberInfo.h>
 
 @interface AFIAppDelegate()
 
@@ -18,6 +20,12 @@
 
 
 @implementation AFIAppDelegate
+
+- (CTCallCenter *)callCenter
+{
+    if (!_callCenter) _callCenter = [[CTCallCenter alloc] init];
+    return _callCenter;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -29,6 +37,32 @@
 
     
     // Override point for customization after application launch.
+    
+    self.callCenter.callEventHandler=^(CTCall* call)
+    {
+        if (call.callState == CTCallStateDialing) {
+            
+            NSLog(@"Call in progress");
+            
+        } else if (call.callState == CTCallStateDisconnected) {
+            
+            NSLog(@"Call has been disconnected");
+            
+        } else if (call.callState == CTCallStateConnected) {
+            
+            NSLog(@"Call has just been connected");
+            
+        } else if(call.callState == CTCallStateConnected) {
+            
+            NSLog(@"Call is incoming");
+            
+        } else {
+            
+            NSLog(@"None of the conditions");
+            
+        }
+    };
+    
     return YES;
 }
 							
@@ -42,12 +76,18 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    self.callCenter = 
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    NSSet *calls = self.callCenter.currentCalls;
+    for (CTCall *call in calls) {
+        NSLog(@"Call = %@", call);
+//        NSString *caller = CTCallCopyAddress(NULL, call);
+//        NSLog(@"caller:%@",caller);
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

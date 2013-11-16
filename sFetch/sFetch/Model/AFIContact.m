@@ -70,6 +70,15 @@ static int contactNumber;
     return [[AFIContact alloc] initWithInfo:info andIdentifier:identifier];
 }
 
+- (NSString *)job
+{
+    if (!_job) {
+        return @"Unknown";
+    } else {
+        return _job;
+    }
+}
+
 #pragma mark NSCoding
 
 - (id)initWithCoder:(NSCoder *)aDecoder

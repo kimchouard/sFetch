@@ -202,6 +202,12 @@
     return [super popViewControllerAnimated:animated];
 }
 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [self fixSearchBarToTop:YES];
+    [super pushViewController:viewController animated:YES];
+}
+
 - (void)popToSearchViewController
 {
     NSArray *viewControllers =  self.viewControllers;
